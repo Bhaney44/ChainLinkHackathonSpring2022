@@ -7,5 +7,5 @@ Repository for 2022 [ChainLink Hackathon](https://chain.link/hackathon).
 - Brian Haney [@bhaney44](https://github.com/bhaney44)
 
 # Resources
-[Chainlink Deploy Your First Smart Contract](https://docs.chain.link/docs/deploy-your-first-contract/)
-[Chainlink Consuming Data Feeds](https://docs.chain.link/docs/consuming-data-feeds/)
+-[Chainlink Deploy Your First Smart Contract](https://docs.chain.link/docs/deploy-your-first-contract/)
+-[Chainlink Consuming Data Feeds](https://docs.chain.link/docs/consuming-data-feeds/)
