@@ -17,3 +17,5 @@ Invent a converter for Algorand and Ethererum using Chainlink. The converter wil
 [Chainlink Deploy Your First Smart Contract](https://docs.chain.link/docs/deploy-your-first-contract/)
 
 [Chainlink Consuming Data Feeds](https://docs.chain.link/docs/consuming-data-feeds/)
+
+[Chainlink Getting Hel](https://docs.chain.link/docs/getting-help/)
