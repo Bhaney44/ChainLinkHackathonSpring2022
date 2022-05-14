@@ -19,3 +19,5 @@ Invent a converter for Algorand and Ethererum using Chainlink. The converter wil
 [Chainlink Consuming Data Feeds](https://docs.chain.link/docs/consuming-data-feeds/)
 
 [Chainlink Getting Help](https://docs.chain.link/docs/getting-help/)
+
+[Chainlink Acquire testnet LINK](https://docs.chain.link/docs/acquire-link/)
