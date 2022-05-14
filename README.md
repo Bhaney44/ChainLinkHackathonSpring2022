@@ -5,7 +5,7 @@ Repository for 2022 [ChainLink Hackathon](https://chain.link/hackathon).
 How do we create an interchain protocol between the Ethereum and Algorand blockchains?
 
 # Solution
-Use Chainlink to create an Algorand and Ethererum converter.
+Use Chainlink to create an Algorand and Ethererum converter. The converter will allow interoperability between the two blockchains.
 
 # Team
 - Samuel Tosin [@Samuellyworld](https://github.com/samuellyworld)
