@@ -9,9 +9,10 @@ Invent a converter for Algorand and Ethererum using Chainlink. The converter wil
 
 # goLink
 
-The token goLink is collatoralized LINK on Algorand.
+The token goLink is collatoralized LINK on Algorand. goLink is availible on both the Algorand MainNet and TestNet.
 
 [Algorand MainNet goLink](https://algoexplorer.io/asset/743260106)
+
 [Algorand TestNet goLink](https://testnet.algoexplorer.io/asset/89483596)
 
 # Team
