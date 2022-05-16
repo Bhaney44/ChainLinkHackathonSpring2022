@@ -7,6 +7,13 @@ How do we create an interchain protocol between the Ethereum and Algorand blockc
 # Solution
 Invent a converter for Algorand and Ethererum using Chainlink. The converter will allow interoperability between the two blockchains.
 
+# goLink
+
+The token goLink is collatoralized LINK on Algorand.
+
+[Algorand MainNet goLink](https://algoexplorer.io/asset/743260106)
+[Algorand TestNet goLink](https://testnet.algoexplorer.io/asset/89483596)
+
 # Team
 - Samuel Tosin [@Samuellyworld](https://github.com/samuellyworld)
 - David Kazeem [@davonjagah](https://github.com/davonjagah)
