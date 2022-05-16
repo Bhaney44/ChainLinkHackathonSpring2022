@@ -2,10 +2,10 @@
 Repository for 2022 [ChainLink Hackathon](https://chain.link/hackathon).
 
 # Problem
-How do we create an interchain protocol between the Ethereum and Algorand blockchains? The problem requires creating an Algorand datafeed for Chainlink. The datafeed will allow Chainlink smart contracts to recieve data from Algorand enabling Chainlink smart contracts to use the Algorand data in automating asset distributions.
+How do we create an interchain protocol between the Ethereum and Algorand blockchains? The problem requires creating an Algorand datafeed for Chainlink. The datafeed will allow Chainlink smart contracts to recieve data from Algorand enabling Chainlink smart contracts to use the Algorand data in automating asset distributions. 
 
 # Solution
-Invent a converter for Algorand and Ethererum using Chainlink. The converter will allow interoperability between the two blockchains.
+Invent a converter for Algorand and Ethererum using Chainlink. The converter will allow interoperability between the two blockchains. A keystone to the converter is goLink.
 
 # goLink
 
