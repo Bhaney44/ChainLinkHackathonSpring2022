@@ -17,6 +17,9 @@ The token goLink is collatoralized LINK on Algorand. goLink is availible on both
 
 goLink Logo added to Algorand Network via [Pull Request #465](https://github.com/tinymanorg/asa-list/pull/465).
 
+<img width="200" alt="icon" src="https://user-images.githubusercontent.com/43055154/168509951-955fb454-a5e6-4aeb-aa69-97972b6f9b87.png">
+
+
 # Team
 - Samuel Tosin [@Samuellyworld](https://github.com/samuellyworld)
 - David Kazeem [@davonjagah](https://github.com/davonjagah)
