@@ -24,6 +24,7 @@ LINK Logo added to Algorand Network via [Pull Request #465](https://github.com/t
 - Samuel Tosin [@Samuellyworld](https://github.com/samuellyworld)
 - David Kazeem [@davonjagah](https://github.com/davonjagah)
 - Brian Haney [@bhaney44](https://github.com/bhaney44)
+- Eugene Nnamdi [@eugenennamdi](https://github.com/eugenennamdi)
 
 
 # Resources
