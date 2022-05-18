@@ -20,11 +20,11 @@ LINK Logo added to Algorand Network via [Pull Request #465](https://github.com/t
 <img width="200" alt="icon" src="https://user-images.githubusercontent.com/43055154/168509951-955fb454-a5e6-4aeb-aa69-97972b6f9b87.png">
 
 
-# Team
-- Samuel Tosin [@Samuellyworld](https://github.com/samuellyworld)
-- David Kazeem [@davonjagah](https://github.com/davonjagah)
-- Brian Haney [@bhaney44](https://github.com/bhaney44)
-- Eugene Nnamdi [@eugenennamdi](https://github.com/eugenennamdi)
+# Contributors
+- [Samuel Tosin](https://github.com/samuellyworld)
+- [David Kazeem](https://github.com/davonjagah)
+- [Brian Haney](https://github.com/bhaney44)
+- [Eugene Nnamdi](https://github.com/eugenennamdi)
 
 
 # Resources
