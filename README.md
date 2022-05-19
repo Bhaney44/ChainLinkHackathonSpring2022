@@ -28,10 +28,16 @@ LINK Logo added to Algorand Network via [Pull Request #465](https://github.com/t
 
 
 # Resources
-[Chainlink Deploy Your First Smart Contract](https://docs.chain.link/docs/deploy-your-first-contract/)
+[Chainlink: Deploy Your First Smart Contract](https://docs.chain.link/docs/deploy-your-first-contract/)
 
-[Chainlink Consuming Data Feeds](https://docs.chain.link/docs/consuming-data-feeds/)
+[Chainlink: Consuming Data Feeds](https://docs.chain.link/docs/consuming-data-feeds/)
 
-[Chainlink Getting Help](https://docs.chain.link/docs/getting-help/)
+[Chainlink: Getting Help](https://docs.chain.link/docs/getting-help/)
 
-[Chainlink Acquire testnet LINK](https://docs.chain.link/docs/acquire-link/)
+[Chainlink: Acquire testnet LINK](https://docs.chain.link/docs/acquire-link/)
+
+[Chainlink: Running a Chainlink Node](https://docs.chain.link/docs/running-a-chainlink-node/)
+
+[Chainlink: Fullfilling Requests](https://docs.chain.link/docs/fulfilling-requests/)
+
+[Chainlink: Configuring Chainlink Nodes](https://docs.chain.link/docs/configuration-variables/)
