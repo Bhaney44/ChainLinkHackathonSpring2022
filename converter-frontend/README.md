@@ -1,1 +1,1 @@
-# goLink Frontend UI
+# goLink Frontend
