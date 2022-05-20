@@ -41,3 +41,11 @@ LINK Logo added to Algorand Network via [Pull Request #465](https://github.com/t
 [Chainlink: Fullfilling Requests](https://docs.chain.link/docs/fulfilling-requests/)
 
 [Chainlink: Configuring Chainlink Nodes](https://docs.chain.link/docs/configuration-variables/)
+
+[Chainklinl: Building External Adapters](https://docs.chain.link/docs/developers/)
+
+[Chainlink: Bridges: Adding External Adapters to Nodes](https://docs.chain.link/docs/node-operators/)
+
+[Chainklink: Webhook Jobs](https://docs.chain.link/docs/jobs/types/webhook/)
+
+
