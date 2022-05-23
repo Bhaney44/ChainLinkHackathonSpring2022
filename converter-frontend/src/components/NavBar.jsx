@@ -42,7 +42,7 @@ const NavBar = () => {
 
   const algodClient = new algosdk.Algodv2(
    "",
-    "https://node.testnet.algoexplorerapi.io",
+    "https://algoexplorerapi.io",
     ""
   );
 
@@ -291,7 +291,7 @@ const NavBar = () => {
                 <div className="addrDispMain">
                   <div className="addrDisplayInn">
                     <div className="addrBalance">
-                    {balance[addressNum]?.balance.toLocaleString()} <img src={img} style={{width : '13px', marginTop : '0px', marginLeft : '2px'}} alt="choice logo"/>
+                    {balance[addressNum]?.balance.toLocaleString()} <img src={img} style={{width : '13px', marginTop : '0px', marginLeft : '2px'}} alt="chain logo"/>
                     </div>
 
                     <CopyToClipboard text={balance[addressNum]?.address}>
