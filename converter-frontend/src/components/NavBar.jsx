@@ -3,7 +3,7 @@ import { ASSET_ID } from "../utils/constants";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import MyAlgoConnect from "@randlabs/myalgo-connect";
-import img from '../assets/btc.png';
+import img from '../assets/c.png';
 import { CopyToClipboard } from "react-copy-to-clipboard";
 import corect from '../assets/correct.png';
 import {Link} from 'react-router-dom';
@@ -41,10 +41,8 @@ const NavBar = () => {
   const [balance, setBalance] = useState([]);
 
   const algodClient = new algosdk.Algodv2(
-    {
-      "X-API-Key": "z6H94GE3sI8w100S7MyY92YMK5WIPAmD6YksRDsC"
-    },
-    "https://mainnet-algorand.api.purestake.io/ps2",
+   "",
+    "https://node.testnet.algoexplorerapi.io",
     ""
   );
 
