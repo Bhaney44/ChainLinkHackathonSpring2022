@@ -1,5 +1,5 @@
 # The Chainlink Converter
-Repository for 2022 [ChainLink Hackathon](https://chain.link/hackathon).
+Repository for the Spring 2022 [ChainLink Hackathon](https://chain.link/hackathon).
 
 # Problem
 How do we create an interchain protocol between ChainLink and Algorand? The problem requires creating a collatoral form of LINK on Algorand. The collatoralized LINK will allow Chainlink smart contracts to recieve data from Algorand enabling Chainlink smart contracts to use Algorand data in automating asset distributions. 
