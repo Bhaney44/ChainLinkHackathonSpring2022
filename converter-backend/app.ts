@@ -1,5 +1,6 @@
 import express from "express";
 import config from "config";
+import connect from "./db";
 
 
 const port = config.get("port") as number;
@@ -13,5 +14,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 app.listen(port, host, () => {
-  console.log(`Server listening at http://${host}:${port}`);
+  console.log(`Server listening at http://${host}:${port}`)
+  connect()
+  ;
 });
