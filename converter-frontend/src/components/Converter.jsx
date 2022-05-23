@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useState } from "react";
 import { useDispatch } from "react-redux";
 import MyAlgoConnect from "@randlabs/myalgo-connect";
 import algosdk from "algosdk";
@@ -23,18 +23,13 @@ const Converter = () => {
   const walletAddress = localStorage.getItem("address");
 
   const dispatch = useDispatch();
-  const [items, setitems] = useState([]);
-
-  const [itemInp, setItemInp] = useState("");
+  
   const [processTit, setProcessTit] = useState("");
   const [electionDescription, setElectionDesciption] = useState("");
 
   const [algoToSend, setalgoToSend] = useState(1);
 
-  const hdImgPicker = useRef(null);
-  const itemImgPicker = useRef(null);
-  const [hdImg, setHdImg] = useState(null);
-  const [itemImg, setItemImg] = useState(null);
+
 
   
 
