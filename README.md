@@ -1,7 +1,7 @@
 # Chainlink Converters
 Repository for the Spring 2022 [ChainLink Hackathon](https://chain.link/hackathon).
 
-# Introduction
+# Overview
 
 Linking blockchains is a hard problem, with a great solution – Chainlink. Chainlink is a series of Decentralized Oracle Networks (DONs), which are information systems maintained by a committee of nodes.[[1]](https://chain.link/whitepaper)  DONs act as powerful abstraction layers, offering interfaces for smart contracts, and decentralized off-chain computing resources.  Building with Chainlink, this Project provides a new solution to the interoperability problem, which refers to the ability of blockchains to seamlessly integrate with one another.
 
