@@ -43,4 +43,19 @@ export const handleCreateUser = (req: Request, res : Response) => {
 
 }
 
+export const handleGetAllUsers = (req: Request, res: Response) => {
+    user.find()
+    .then(data => {
+        res.status(200).json({
+            message : "Successfully gotten all information for explorer use",
+            data : data
+        })
+    })
+    .catch(err => {
+        res.status(500).json({
+            message : err.message || "error getting all information"
+        })
+      })
+}
+
 
