@@ -32,7 +32,7 @@ LINK Logo added to Algorand Network via [Pull Request #465](https://github.com/t
 - [Brian Haney](https://github.com/bhaney44)
 - [Eugene Nnamdi](https://github.com/eugenennamdi)
 
-# Resources
+# Additional Resources
 [Chainlink: Deploy Your First Smart Contract](https://docs.chain.link/docs/deploy-your-first-contract/)
 
 [Chainlink: Consuming Data Feeds](https://docs.chain.link/docs/consuming-data-feeds/)
@@ -54,6 +54,10 @@ LINK Logo added to Algorand Network via [Pull Request #465](https://github.com/t
 [Chainlink: Webhook Jobs](https://docs.chain.link/docs/jobs/types/webhook/)
 
 [Chainlink: Building and Using External Adapters](https://blog.chain.link/build-and-use-external-adapters/)
+
+[Open Zeppelin: ERC 20](https://docs.openzeppelin.com/contracts/4.x/erc20)
+
+[Algorand: Create your Own Coin on TestNet](https://developer.algorand.org/tutorials/create-laylacoin/)
 
 
 
