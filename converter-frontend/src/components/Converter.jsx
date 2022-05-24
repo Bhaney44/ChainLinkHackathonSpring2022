@@ -10,11 +10,7 @@ const Converter = () => {
     "https://node.testnet.algoexplorerapi.io",
     ""
   );
-  const indexerClient = new algosdk.Indexer(
-    "",
-    "https://algoindexer.testnet.algoexplorerapi.io",
-    ""
-  );
+
 
   const myAlgoWallet = new MyAlgoConnect();
 

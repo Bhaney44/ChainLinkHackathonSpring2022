@@ -352,6 +352,20 @@ const NavBar = () => {
                   </div>
                   <p className="dropDownConnect_item_txt">My Algo Wallet</p>
                 </div>
+                <div
+                  className="dropDownConnect_item"
+                  onClick={algoSignerConnect}
+                >
+                  <div className="dropDownConnect_img">
+                    <img
+                      src="https://i.postimg.cc/d11f6s0j/metamask.png"
+                      alt=""
+                    />
+                  </div>
+                  <p className="dropDownConnect_item_txt">
+                   MetaMask
+                  </p>
+                </div>
 
                 <div
                   className="dropDownConnect_item"
