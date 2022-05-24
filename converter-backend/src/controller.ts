@@ -30,7 +30,7 @@ export const handleCreateUser = (req: Request, res : Response) => {
    userDocument.save()
    .then((data) => {
     res.status(200).json({
-        message : 'User Document details successfully stored for explorer used only',
+        message : 'User Document details successfully stored for explorer use only',
         data : data
     })
    })
