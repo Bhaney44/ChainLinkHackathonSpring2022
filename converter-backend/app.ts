@@ -4,7 +4,7 @@ import dotenv from "dotenv";
 import connect from "./db";
 import cors from "cors";
 import { Response, Request } from "express";
-import { handleCreateUser, handleGetAllUsers } from "./src/controller";
+import { handleCreateUser, handleGetAllUsers , handleGetTransaction} from "./src/controller";
 
 
 const port = config.get("port") as number;
@@ -36,6 +36,11 @@ app.post('/explorer/post', (req: Request, res: Response) => {
 //get all submitted data from db for explorer population
 app.get('/explorer/data', (req : Request, res : Response) => {
   handleGetAllUsers(req,res);
+})
+
+//get transaction 
+app.get('/explorer/transaction', (req : Request, res : Response) => {
+  handleGetTransaction(req,res);
 })
 
 app.listen(port, host, () => {
