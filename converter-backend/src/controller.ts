@@ -58,4 +58,19 @@ export const handleGetAllUsers = (req: Request, res: Response) => {
       })
 }
 
+export const handleGetTransaction = (req: Request, res: Response) => {
+    user.findOne({address:req.body.eth_address, pending:true})
+    .then(data => {
+        res.status(200).json({
+            message : "Successfully Gotten Data",
+            data : data
+        })
+    })
+    .catch(err => {
+        res.status(500).json({
+            message : err.message || "error getting information"
+        })
+      })
+}
+
 
