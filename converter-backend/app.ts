@@ -39,7 +39,7 @@ app.get('/explorer/data', (req : Request, res : Response) => {
 })
 
 //get transaction 
-app.get('/explorer/transaction', (req : Request, res : Response) => {
+app.post('/explorer/transaction', (req : Request, res : Response) => {
   handleGetTransaction(req,res);
 })
 
