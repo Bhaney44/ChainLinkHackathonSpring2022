@@ -210,6 +210,32 @@ const NavBar = () => {
     });
   };
 
+  const metamaskConnection = async ()=> {
+
+    dispatch({
+      type: "confirm_wallet",
+      alertContent : "Connecting to metamask"
+    })
+      // Check if MetaMask is installed on user's browser
+  if(window.ethereum) {
+    const accounts = await window.ethereum.request({ method: "eth_requestAccounts"  });
+    console.log(accounts, "accounts");
+    
+    const chainId = await window.ethereum.request({ method: 'eth_chainId'});
+   } else {
+     // Show alert if Ethereum provider is not detected
+     dispatch({
+      type: "close_wallet"
+    })
+
+    dispatch({
+      type: "alert_modal",
+      alertContent: "Please Install MetaMask!",
+    });
+   }
+ 
+  } 
+
   const algoSignerConnect = async () => {
     
 
@@ -263,6 +289,8 @@ const NavBar = () => {
       });
     }
   };
+
+  
 
   return (
     <header className="small_header">
@@ -354,11 +382,11 @@ const NavBar = () => {
                 </div>
                 <div
                   className="dropDownConnect_item"
-                  onClick={algoSignerConnect}
+                  onClick={metamaskConnection}
                 >
                   <div className="dropDownConnect_img">
                     <img
-                      src="https://i.postimg.cc/d11f6s0j/metamask.png"
+                      src="https://i.postimg.cc/zGQ3QnH6/meta.png"
                       alt=""
                     />
                   </div>
