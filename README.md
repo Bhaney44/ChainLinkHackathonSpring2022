@@ -27,8 +27,7 @@ The token goLink is validated LINK on Algorand. We launched goLink on both the A
 
 LINK Logo added to Algorand Network via [Pull Request #465](https://github.com/tinymanorg/asa-list/pull/465).
 
-<img width="200" alt="icon" src="https://user-images.githubusercontent.com/43055154/168509951-955fb454-a5e6-4aeb-aa69-97972b6f9b87.png">
-
+<img width="521" alt="Screen Shot 2022-05-25 at 9 25 23 AM" src="https://user-images.githubusercontent.com/43055154/170313104-31a6f15e-0cee-4279-bc55-c68b63ebd9b6.png">
 
 # Contributors
 - [Samuel Tosin](https://github.com/samuellyworld)
