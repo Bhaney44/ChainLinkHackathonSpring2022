@@ -10,9 +10,10 @@ import {Link} from 'react-router-dom';
 import WalletConnect from "@walletconnect/client";
 import QRCodeModal from "algorand-walletconnect-qrcode-modal";
 import {ethers} from 'ethers';
+import { useWindowSize } from "@react-hook/window-size";
 
 
-const NavBar = () => {
+const NavBar = ({darkTheme, NavLink}) => {
   const dispatch = useDispatch();
 
   const addressNum = useSelector((state) => state.status.addressNum);
@@ -28,6 +29,18 @@ const NavBar = () => {
   
       }, 500);
     }
+
+    const setMode = () => {
+      if (!darkTheme) {
+        localStorage.setItem("mode", "dark");
+        dispatch({ type: "dark_mode" });
+      } else {
+        localStorage.setItem("mode", "light");
+        dispatch({ type: "light_mode" });
+      }
+    };
+  
+    const [width] = useWindowSize();
 
   const LogOut = () => {
     localStorage.removeItem("address");
@@ -472,11 +485,99 @@ const NavBar = () => {
           )}
         </div>
       </div>
+     
 
+      <div
+        style={{
+          width: "100%",
+          display: "flex",
+          fontSize: "12px",
+          fontWeight: "500",
+          wordSpacing: "1px",
+          alignItems: "center",
+          color: "var(--wht)",
+          padding: "0px 5vw",
+          letterSpacing: "0.5px",
+          textTransform: "uppercase",
+          background: "var(--background)",
+          height: "var(--sm-hd-height-half)",
+          justifyContent: "space-between",
+          borderTop: "1px solid var(--border-default)",
+        }}
+      >
+        {width > 850 && (
+          <ul className="listNavBig">
+            <li>
+              <NavLink
+                style={({ isActive }) => {
+                  return {
+                    color : isActive ? "var(--nav-active)" : "var(--nav-not-active)",
+                    display: "flex",
+                    opacity: isActive ? "1" : "0.6",
+                    alignItems: "center",
+                    flexDirection: "column",
+                  };
+                }}
+                to={`/`}
+                key={"home"}
+              >
+                Home
+              </NavLink>
+            </li>
+
+            <li>
+              <NavLink
+                style={({ isActive }) => {
+                  return {
+                    color : isActive ? "var(--nav-active)" : "var(--nav-not-active)",
+                    display: "flex",
+                    opacity: isActive ? "1" : "0.6",
+                    alignItems: "center",
+                    flexDirection: "column",
+                  };
+                }}
+                to={`/converter`}
+                key={"converter"}
+              >
+                converter
+              </NavLink>
+            </li>
+
+            <li>
+              <NavLink
+                style={({ isActive }) => {
+                  return {
+                    color : isActive ? "var(--nav-active)" : "var(--nav-not-active)",
+                    display: "flex",
+                    opacity: isActive ? "1" : "0.6",
+                    alignItems: "center",
+                    flexDirection: "column",
+                  };
+                }}
+                to={`/explorer`}
+                key={"explorer"}
+              >
+                Explorer
+              </NavLink>
+            </li>
+
+            <li onClick={setMode}>
+              M
+              {darkTheme ? (
+                <i className="uil uil-brightness-low"></i>
+              ) : (
+                <i className="uil uil-moon"></i>
+              )}
+              de
+            </li>
+           
+            <li className="disconnect" style={{color: 'red', }} onClick={LogOut}>{isWalletConnected ? "Disconnect" : null}</li>
+          </ul>
+        )}
      
-      <p className="disconnect" style={{color: 'red', }} onClick={LogOut}> <span className={ isWalletConnected ? "disconnect_button" : null} style={{cursor : "pointer"}}>{isWalletConnected ? "Disconnect ☎️" : null}</span></p>
+      {/* <p className="disconnect" style={{color: 'red', }} onClick={LogOut}> <span className={ isWalletConnected ? "disconnect_button" : null} style={{cursor : "pointer"}}>{isWalletConnected ? "Disconnect ☎️" : null}</span></p> */}
      
-    
+    </div>
     </header>
   );
 };

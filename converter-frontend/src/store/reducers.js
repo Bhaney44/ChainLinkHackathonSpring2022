@@ -2,6 +2,7 @@ import { combineReducers } from "redux";
 
 const status = (
   state = {
+    darkTheme: localStorage.getItem("mode") === "light" ? false : true,
     alertModal: { openModal: false, modalContent: "" },
     electModal: { openElectModal: false, modalData: null },
     voteModal: { openModalVote: false, voteData: null },
@@ -26,6 +27,11 @@ const status = (
         ...state,
         alertModal: { openModal: true, modalContent: action.alertContent },
       };
+
+      case "light_mode":
+        return { ...state, darkTheme: false };
+      case "dark_mode":
+        return { ...state, darkTheme: true };
 
     case "close_modal":
       return { ...state, alertModal: { openModal: false, modalContent: "" } };

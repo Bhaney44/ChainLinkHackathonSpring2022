@@ -81,6 +81,15 @@ main {
  
 }
 
+.dark_theme {
+  --color: "#808080";
+  --nav-active : whitesmoke;
+  --nav-not-active: grey;
+  --background: var(--dark-800);
+  --border-default: rgba(255, 255, 255, 8%);
+  background-color: var(--background);
+}
+
 
 .big_screen {
   --sm-hd-height: 120px;
