@@ -59,7 +59,7 @@ LINK Logo added to Algorand Network via [Pull Request #465](https://github.com/t
 
 [Algorand: Create your Own Coin on TestNet](https://developer.algorand.org/tutorials/create-laylacoin/)
 
-[Algorand: Py-Algorand-SDK] (https://github.com/algorand/py-algorand-sdk)
+[Algorand: Py-Algorand-SDK](https://github.com/algorand/py-algorand-sdk)
 
 
 
