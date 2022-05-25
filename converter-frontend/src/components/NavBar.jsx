@@ -44,7 +44,7 @@ const NavBar = () => {
 
   const algodClient = new algosdk.Algodv2(
     {
-      "X-API-Key": "", //your API key gotten from purestake API,
+      "X-API-Key": "AE6Ave7wNH8bKB1SiwutOakoTHreBlWZ9TMKElZs", //your API key gotten from purestake API,
     },
     "https://testnet-algorand.api.purestake.io/ps2",
     ""
