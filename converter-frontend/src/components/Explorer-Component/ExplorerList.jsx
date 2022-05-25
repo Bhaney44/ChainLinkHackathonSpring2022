@@ -2,7 +2,7 @@ import React from "react";
 import './ExplorerList.scss';
 import EachData from "./EachExplorerData";
 
-const ExplorerList = () => {
+const ExplorerList = ({explorerlist}) => {
     return (
        <div className="explorer-page">
            <div className="explorer-header">
@@ -16,8 +16,20 @@ const ExplorerList = () => {
            <span> Amount </span>
           </div>
            </div>
-           <EachData />
-           <EachData />
+           {
+               explorerlist.map((data, i) =>{
+                   return(
+                    <EachData key={i}
+                       eth = {data.eth_address}
+                       algo ={data.algo_address}
+                       amount = {data.amount}
+
+                    />
+                   )
+               } )
+           }
+          
+           
        </div>
     )
 }
