@@ -23,9 +23,7 @@ Invent a converter for Algorand and Ethereum using Chainlink. The converter will
 
 The token goLink is validated LINK on Algorand. We launched goLink on both the Algorand MainNet and TestNet.
 
-[Algorand MainNet goLink](https://algoexplorer.io/asset/743260106)
-
-[Algorand TestNet goLink](https://testnet.algoexplorer.io/asset/89483596)
+[Algorand MainNet goLink](https://algoexplorer.io/asset/743260106) | [Algorand TestNet goLink](https://testnet.algoexplorer.io/asset/89483596)
 
 LINK Logo added to Algorand Network via [Pull Request #465](https://github.com/tinymanorg/asa-list/pull/465).
 
