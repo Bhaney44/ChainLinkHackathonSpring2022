@@ -7,9 +7,9 @@ import img from '../assets/c.png';
 import { CopyToClipboard } from "react-copy-to-clipboard";
 import corect from '../assets/correct.png';
 import {Link} from 'react-router-dom';
-
 import WalletConnect from "@walletconnect/client";
 import QRCodeModal from "algorand-walletconnect-qrcode-modal";
+import {ethers} from 'ethers';
 
 
 const NavBar = () => {
@@ -34,6 +34,8 @@ const NavBar = () => {
     localStorage.removeItem("addresses");
     localStorage.removeItem("wallet-type");
     localStorage.removeItem("walletconnect");
+    localStorage.removeItem("metaAddresses");
+    localStorage.removeItem("metaAddress");
     window.location.reload();
     console.log("data");
   };
@@ -41,18 +43,22 @@ const NavBar = () => {
   const [balance, setBalance] = useState([]);
 
   const algodClient = new algosdk.Algodv2(
-   "",
-    "https://algoexplorerapi.io",
+    {
+      "X-API-Key": "", //your API key gotten from purestake API,
+    },
+    "https://testnet-algorand.api.purestake.io/ps2",
     ""
   );
 
   const walletAddress = localStorage.getItem("address");
+  const eth_address = localStorage.getItem("metaAddress")
   const addresses = localStorage.getItem("addresses")?.split(",");
 
   let addrArr = [];
   
 
   useEffect(() => {
+   if(walletAddress) {
     addresses?.forEach(async (item) => {
       const myAccountInfo = await algodClient.accountInformation(item).do();
       const bal =
@@ -78,8 +84,28 @@ const NavBar = () => {
           addr: addrArr[0]?.address,
         });
         setBalance(addrArr);
+        // console.log(balance)
       }
     });
+   } 
+   else if(eth_address) {
+      // Requesting balance method
+      window.ethereum
+      .request({ 
+        method: "eth_getBalance", 
+        params: [eth_address, "latest"] 
+      })
+      .then((bal) => {
+         addrArr.push({
+            balance : ethers.utils.formatEther(bal),
+            address: eth_address
+          })
+        setBalance(addrArr)
+      })
+   }
+   
+
+
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -96,10 +122,12 @@ const NavBar = () => {
       const accounts = await myAlgoWallet.connect({
         shouldSelectOneAccount: true,
       });
-
+       console.log(accounts, 'accounts')
       const addresses = accounts.map((item) => item?.address);
       const address = accounts[0].address;
       
+      console.log(address, 'address')
+      console.log(addresses, 'addresses')
 
       // close modal.
       localStorage.setItem("wallet-type", "my-algo");
@@ -218,10 +246,22 @@ const NavBar = () => {
     })
       // Check if MetaMask is installed on user's browser
   if(window.ethereum) {
-    const accounts = await window.ethereum.request({ method: "eth_requestAccounts"  });
-    console.log(accounts, "accounts");
+    const account = await window.ethereum.request({ method: "eth_requestAccounts"  });
+    console.log(account, "accounts");
+
+    const addresses = account
+    const metaAddress = account[0];
+
+    console.log(metaAddress, 'metaAddress');
+    console.log(addresses, 'metaAddresses');
+
+    localStorage.setItem("wallet-type", "metamask");
+    localStorage.setItem("metaAddress", metaAddress);
+    localStorage.setItem("metaAddresses", addresses);
+
+    window.location.reload();
     
-    const chainId = await window.ethereum.request({ method: 'eth_chainId'});
+    // const chainId = await window.ethereum.request({ method: 'eth_chainId'});
    } else {
      // Show alert if Ethereum provider is not detected
      dispatch({
@@ -237,7 +277,6 @@ const NavBar = () => {
   } 
 
   const algoSignerConnect = async () => {
-    
 
     try {
       dispatch({
@@ -262,14 +301,15 @@ const NavBar = () => {
         );
       } else {
         await window.AlgoSigner.connect({
-          ledger: "MainNet",
+          ledger: "TestNet",
         });
         const accounts = await window.AlgoSigner.accounts({
-          ledger: "MainNet",
+          ledger: "TestNet",
         });
 
         const addresses = accounts.map((item) => item?.address);
         const address = accounts[0].address;
+       
 
         // close modal.
         localStorage.setItem("wallet-type", "algosigner");
@@ -313,7 +353,7 @@ const NavBar = () => {
             justifyContent: "center",
           }}
         >
-          {!!isWalletConnected ? (
+          {!!isWalletConnected? (
             <>
               <div className="addrDisplay">
                 <div className="addrDispMain">
@@ -430,7 +470,7 @@ const NavBar = () => {
       </div>
 
      
-      <p className="disconnect" style={{color: 'red', }} onClick={LogOut}> <span className={ walletAddress ? "disconnect_button" : null} style={{cursor : "pointer"}}>{walletAddress ? "Disconnect ☎️" : null}</span></p>
+      <p className="disconnect" style={{color: 'red', }} onClick={LogOut}> <span className={ isWalletConnected ? "disconnect_button" : null} style={{cursor : "pointer"}}>{isWalletConnected ? "Disconnect ☎️" : null}</span></p>
      
     
     </header>
