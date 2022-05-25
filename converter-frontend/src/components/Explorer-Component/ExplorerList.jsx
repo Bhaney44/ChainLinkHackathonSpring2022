@@ -1,5 +1,6 @@
 import React from "react";
 import './ExplorerList.scss';
+import EachData from "./EachExplorerData";
 
 const ExplorerList = () => {
     return (
@@ -15,6 +16,7 @@ const ExplorerList = () => {
            <span> Amount </span>
           </div>
            </div>
+           <EachData />
        </div>
     )
 }
