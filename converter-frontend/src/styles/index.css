@@ -81,14 +81,7 @@ main {
  
 }
 
-.dark_theme {
-  --color: "#808080";
-  --nav-active : whitesmoke;
-  --nav-not-active: grey;
-  --background: var(--dark-800);
-  --border-default: rgba(255, 255, 255, 8%);
-  background-color: var(--background);
-}
+
 
 
 .big_screen {
@@ -876,12 +869,12 @@ iframe {
 }
 
 /* disconnect & election timer */
-.disconnect {
+/* .disconnect {
   display: block;
   text-align: right;
   text-transform: uppercase;
-}
-.disconnect_button {
+} */
+/* .disconnect_button {
   cursor: pointer;
   font-family: 'Anybody', 'Courier New', Courier, monospace !important ;
     margin-right: 10vw;
@@ -891,7 +884,7 @@ iframe {
     padding: 3px;
     background: whitesmoke;
     border-radius: 3px;
-}
+} */
 
 .timer {
   font-family: 'Anybody', 'Courier New', Courier, monospace !important ;
