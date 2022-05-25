@@ -1,4 +1,4 @@
-// Copyright Brian Haney 2022
+// Copyright Brian Haney, Samuel Tosin, David Kazeem, and Eugene Nnamdi 2022
 // Apache License
 // Backend architecture prototyping
 
