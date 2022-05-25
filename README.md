@@ -38,7 +38,7 @@ LINK Logo added to Algorand Network via [Pull Request #465](https://github.com/t
 - [Brian Haney](https://github.com/bhaney44)
 - [Eugene Nnamdi](https://github.com/eugenennamdi)
 
-# Additional Resources
+# Resources
 [Chainlink: Deploy Your First Smart Contract](https://docs.chain.link/docs/deploy-your-first-contract/)
 
 [Chainlink: Consuming Data Feeds](https://docs.chain.link/docs/consuming-data-feeds/)
