@@ -1,13 +1,14 @@
 import React from "react";
 import './EachExplorerData.scss';
 
-const EachData = () => {
+const EachData = ({eth, algo, amount}) => {
   return(
    <div className="explorer-item">
-       <span className="eth">0x57c99f30823a4f4c0fee74.......</span>
-       <span className="algo">ZW3ISEHZUHPO7OZGMKLKI....</span>
-       <span amount="amount">10 </span>
+       <span className="eth">{eth.substring(0, 19)}..</span>
+       <span className="algo">{algo.substring(0, 19)}...</span>
+       <span amount="amount">{amount}</span>
    </div>
+   
   )
 
 }
