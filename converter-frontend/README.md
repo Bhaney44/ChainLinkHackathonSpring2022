@@ -2,7 +2,7 @@
 
 # Directories
 
-1. [public] (https://github.com/Bhaney44/ChainLinkHackathonSpring2022/tree/main/converter-frontend/public)
+1. [public](https://github.com/Bhaney44/ChainLinkHackathonSpring2022/tree/main/converter-frontend/public)
 2. [src](https://github.com/Bhaney44/ChainLinkHackathonSpring2022/tree/main/converter-frontend/src)
 
 # Files
