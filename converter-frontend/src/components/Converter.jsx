@@ -32,7 +32,7 @@ const Converter = () => {
   const [addressForConverter, setAddressForConverter] = useState("");
   const [amountToConvert, setAmountToConvert] = useState("");
 
-  const [algoToSend, setalgoToSend] = useState(1);
+  const [algoToSend, setalgoToSend] = useState(null);
 
 
 // converter function
@@ -48,7 +48,21 @@ const convert = () => {
   if(!addressForConverter) {
     dispatch({
       type: "alert_modal",
-      alertContent: "Please Provide Address to facilitate conversion.",
+      alertContent: "Please Provide Address to Facilitate Conversion.",
+    });
+    return;
+  }
+  if(!amountToConvert) {
+    dispatch({
+      type: "alert_modal",
+      alertContent: "Enter Amount To Convert",
+    });
+    return;
+  }
+  if(!algoToSend) {
+    dispatch({
+      type: "alert_modal",
+      alertContent: "You have To Accept Terms & Conditions Before Making Conversion",
     });
     return;
   }
