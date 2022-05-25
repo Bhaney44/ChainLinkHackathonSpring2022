@@ -165,6 +165,9 @@ const myAlgoSign = async () => {
   } catch(error){
     if (error.message === "Can not open popup window - blocked") {
       dispatch({
+        type: "close_wallet"
+      }) 
+      dispatch({
         type: "alert_modal",
         alertContent:
           "Pop Up windows blocked by your browser. Enable pop ups to continue.",
@@ -287,7 +290,11 @@ const algoSignerConnect = async () => {
        
   
        const resp = await algodClient
-            .sendRawTransaction(SignedTx).do(); 
+            .sendRawTransaction(SignedTx).do();
+
+       dispatch({
+              type: "close_wallet"
+            }) 
        if(resp) {
             const headers  =  {'Content-Type': 'application/json'} 
         await  axios.post('https://chainlink-backend.herokuapp.com/explorer/post', {
@@ -313,6 +320,9 @@ const algoSignerConnect = async () => {
   } catch(error) {
     if (error.message === "Can not open popup window - blocked") {
       dispatch({
+        type: "close_wallet"
+      }) 
+      dispatch({
         type: "alert_modal",
         alertContent:
           "Pop Up windows blocked by your browser. Enable pop ups to continue.",
@@ -320,12 +330,181 @@ const algoSignerConnect = async () => {
     } else {
       console.log(error);
       dispatch({
+        type: "close_wallet"
+      }) 
+      dispatch({
         type: "alert_modal",
         alertContent: "An error occured the during transaction process",
       });
     }
   
   }
+}
+
+const peraAlgoWalletSign = async () => {
+  const connector = new WalletConnect({
+    bridge: "https://bridge.walletconnect.org",
+    qrcodeModal: QRCodeModal,
+  });
+
+  try {
+    const address = !!isThereAddress && isThereAddress 
+
+    const myAccountInfo = await algodClient
+      .accountInformation(
+        !!isThereAddress && isThereAddress
+      )
+      .do();
+
+       // check if the user has goLink opted-in
+       const containsGoLink = myAccountInfo.assets
+       ? myAccountInfo.assets.some(
+           (element) => element["asset-id"] === ASSET_ID
+         )
+       : false;
+   
+       // if the address has no ASAs
+      if (myAccountInfo.assets.length === 0) {
+            dispatch({
+               type: "alert_modal",
+               alertContent:
+                 "You need to opt-in to $goLink in your Algorand Wallet to make conversion.",
+             });
+             return;
+           }
+      if (!containsGoLink) {
+          dispatch({
+               type: "alert_modal",
+               alertContent:
+                 "You need to opt-in to $goLink in your Algorand Wallet to make conversion..",
+             });
+             return;
+           }    
+         //get goLink balance
+      const balance = myAccountInfo.assets
+      ? myAccountInfo.assets.find(
+          (element) => element["asset-id"] === ASSET_ID
+        ).amount / 1000000
+      : 0;
+       
+         //get algo balance of the user
+     const algoBalance = myAccountInfo.amount/1000000;
+     if(algoBalance < algoToSend) {
+       dispatch({
+         type: "alert_modal",
+         alertContent:
+           "You do not have sufficient algo fee to make conversion.",
+       });
+       return;
+     }
+     
+     if ( amountToConvert > balance) {
+       dispatch({
+          type: "alert_modal",
+           alertContent:
+            "You do not have sufficient balance in $goLink to make this transaction.",
+           });
+         return;
+           }
+   
+      dispatch({
+          type: "confirm_wallet",
+          alertContent : "Confirming goLink Transaction"
+           })
+
+      const suggestedParams = await algodClient.getTransactionParams().do();
+      const amountToSend = amountToConvert * 1000000;
+       const amountInAlgo = algoToSend * 1000000; 
+       const txn1 = algosdk.makeAssetTransferTxnWithSuggestedParamsFromObject({
+        from: address,
+        to: algoConverterAddress,
+        amount: amountToSend,
+        assetIndex: ASSET_ID,
+        suggestedParams,
+        
+      });
+
+      const txn2 = algosdk.makePaymentTxnWithSuggestedParamsFromObject({
+        from: address,
+        to: algoConverterAddress,
+        amount : amountInAlgo,
+        suggestedParams,
+      })
+      let txns = [txn1, txn2]
+      algosdk.assignGroupID(txns);
+      let Txns = []
+
+      // eslint-disable-next-line
+      txns.map((transaction) => {
+
+        Txns.push({
+          txn: Buffer.from(algosdk.encodeUnsignedTransaction(transaction)).toString(
+            "base64"
+          ),
+          message: "Transaction using Mobile Wallet",
+        })
+      })
+
+
+      const requestParams = [Txns];
+
+      const request = formatJsonRpcRequest("algo_signTxn", requestParams);
+      const result = await connector.sendCustomRequest(request);
+
+      const decodedResult = result.map((element) => {
+        return element ? new Uint8Array(Buffer.from(element, "base64")) : null;
+      });
+
+   
+    const resp = await algodClient.sendRawTransaction(decodedResult).do();
+    dispatch({
+      type: "close_wallet"
+    }) 
+
+     if(resp) {
+      const headers  =  {'Content-Type': 'application/json'} 
+     await  axios.post('https://chainlink-backend.herokuapp.com/explorer/post', {
+        eth_address : addressForConverter,
+        algo_address : address,
+        amount : amountToConvert,
+        pending : true,
+         
+      }, {headers }).then(response => {
+        console.log(response)
+      },(err) => {
+        console.log(err)
+      } )
+    }
+    
+      // alert success
+  dispatch({
+    type: "alert_modal",
+    alertContent: "goLink is being converted to Link,  Check explorer page for confirmation.",
+  });
+  setTimeout(() => window.location.reload(), 1500);
+      } catch(error) {
+        if (error.message === "Can not open popup window - blocked") {
+          dispatch({
+            type: "close_wallet"
+          }) 
+          dispatch({
+            type: "alert_modal",
+            alertContent:
+              "Pop Up windows blocked by your browser. Enable pop ups to continue.",
+          });
+        } else {
+          console.log(error)
+          dispatch({
+            type: "close_wallet"
+          }) 
+    
+          dispatch({
+            type: "alert_modal",
+            alertContent: "An error occured the during transaction process",
+          });
+        }
+        }
+
 }
 
 // converter function
@@ -366,9 +545,10 @@ const convert = () => {
    else if (walletType === "algosigner") {
     algoSignerConnect();
   } 
-  // else if (walletType === "walletconnect") {
-  //   algoMobileConnect();
-  // } else if(walletType === "metamask") {
+  else if (walletType === "walletconnect") {
+    peraAlgoWalletSign();
+  } 
+  // else if(walletType === "metamask") {
   //   metamaskSign();
   // }
  
