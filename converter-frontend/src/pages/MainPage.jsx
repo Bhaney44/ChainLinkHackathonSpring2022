@@ -30,9 +30,9 @@ const MainPage = () => {
       <NavBar />
      <Routes>
         <Route path="/converter" element={<Converter/>} />
-        <Route path='/explorer' element={<ExplorerPage />} /> 
+        
+        <Route path='/explorer' element={<ExplorerPage/>} /> 
      </Routes>
- 
     
     </main>
   );
