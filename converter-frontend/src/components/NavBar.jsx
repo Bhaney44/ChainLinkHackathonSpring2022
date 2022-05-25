@@ -13,7 +13,7 @@ import {ethers} from 'ethers';
 import { useWindowSize } from "@react-hook/window-size";
 
 
-const NavBar = ({darkTheme, NavLink}) => {
+const NavBar = ({NavLink}) => {
   const dispatch = useDispatch();
 
   const addressNum = useSelector((state) => state.status.addressNum);
@@ -29,16 +29,6 @@ const NavBar = ({darkTheme, NavLink}) => {
   
       }, 500);
     }
-
-    const setMode = () => {
-      if (!darkTheme) {
-        localStorage.setItem("mode", "dark");
-        dispatch({ type: "dark_mode" });
-      } else {
-        localStorage.setItem("mode", "light");
-        dispatch({ type: "light_mode" });
-      }
-    };
   
     const [width] = useWindowSize();
 
@@ -561,15 +551,6 @@ const NavBar = ({darkTheme, NavLink}) => {
               </NavLink>
             </li>
 
-            <li onClick={setMode}>
-              M
-              {darkTheme ? (
-                <i className="uil uil-brightness-low"></i>
-              ) : (
-                <i className="uil uil-moon"></i>
-              )}
-              de
-            </li>
            
             <li className="disconnect" style={{color: 'red', }} onClick={LogOut}>{isWalletConnected ? "Disconnect" : null}</li>
           </ul>

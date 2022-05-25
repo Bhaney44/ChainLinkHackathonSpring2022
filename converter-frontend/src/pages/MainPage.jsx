@@ -4,7 +4,8 @@ import { useSelector } from "react-redux";
 import { NavLink, Route, Routes } from "react-router-dom";
 import { useWindowSize } from "@react-hook/window-size";
 import Converter from "../components/Converter";
-import ExplorerPage from "./explorer/ExplorerPage";
+import ExplorerPage from "./ExplorerPage/ExplorerPage";
+import LandingPage from "./LandingPage/LandingPage";
 
 const MainPage = () => {
 
@@ -35,7 +36,7 @@ const MainPage = () => {
       <NavBar darkTheme={darkTheme} NavLink={NavLink} />
      <Routes>
         <Route path="/converter" element={<Converter/>} />
-
+        <Route path="/" element={<LandingPage />} />
         <Route path='/explorer' element={<ExplorerPage/>} /> 
      </Routes>
     
