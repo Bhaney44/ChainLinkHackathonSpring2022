@@ -17,6 +17,7 @@ const ExplorerList = () => {
           </div>
            </div>
            <EachData />
+           <EachData />
        </div>
     )
 }
