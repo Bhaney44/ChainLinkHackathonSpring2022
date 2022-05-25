@@ -12,3 +12,7 @@
 3. config-overrides.js
 4. package-lock.json
 5. package.json
+
+# License
+
+[Apache](https://github.com/Bhaney44/ChainLinkHackathonSpring2022/blob/main/LICENSE)
