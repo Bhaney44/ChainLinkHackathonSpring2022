@@ -4,6 +4,7 @@ import MyAlgoConnect from "@randlabs/myalgo-connect";
 import WalletConnect from "@walletconnect/client"; 
 import { formatJsonRpcRequest } from "@json-rpc-tools/utils";
 import QRCodeModal from "algorand-walletconnect-qrcode-modal";
+import axios from 'axios';
 import algosdk from "algosdk";
 import "../styles/converter.css";
 
@@ -11,7 +12,7 @@ import "../styles/converter.css";
 const Converter = () => {
   // algod Client
   const algod_token = {
-    "X-API-Key": "z6H94GE3sI8w100S7MyY92YMK5WIPAmD6YksRDsC"
+    "X-API-Key": ""
   }
   const algod_address = "https://testnet-algorand.api.purestake.io/ps2";
   const headers = "";
@@ -20,19 +21,168 @@ const Converter = () => {
   const walletType = localStorage.getItem("wallet-type");
   const isWalletConnected =
   localStorage.getItem("wallet-type") === null ? false : true;
+  const isThereAddress = localStorage.getItem("address");
+  const algoConverterAddress = "FJJ7FFJ4ZPIKTB2VN3ZM6HX4IBFIUVIEKQCMMSSPXVOPFB57XOT4OF6C5Y";
+  const ethereumConverterAddress = "0x4F03c13d9727AAF5ED7382F9A507b4109A5b23C6"
 
-  const myAlgoWallet = new MyAlgoConnect();
+  // const myAlgoWallet = new MyAlgoConnect();
+  const ASSET_ID = 89483596;
+
 
   // wallet-type & address
   // const walletType = localStorage.getItem("wallet-type");
   // const walletAddress = localStorage.getItem("address");
 
   const dispatch = useDispatch();
-  
   const [addressForConverter, setAddressForConverter] = useState("");
   const [amountToConvert, setAmountToConvert] = useState("");
+  const [algoToSend, setalgoToSend] = useState(undefined);
 
-  const [algoToSend, setalgoToSend] = useState(null);
+const myAlgoSign = async () => {
+  const myAlgoWallet = new MyAlgoConnect({ shouldSelectOneAccount: false })
+  try {
+    const address = !!isThereAddress && isThereAddress 
+    const myAccountInfo = await algodClient
+    .accountInformation(
+      !!isThereAddress && isThereAddress 
+    )
+    .do();
+ 
+   // check if the user has goLink opted-in
+    const containsGoLink = myAccountInfo.assets
+    ? myAccountInfo.assets.some(
+        (element) => element["asset-id"] === ASSET_ID
+      )
+    : false;
+
+    // if the address has no ASAs
+   if (myAccountInfo.assets.length === 0) {
+         dispatch({
+            type: "alert_modal",
+            alertContent:
+              "You need to opt-in to $goLink in your Algorand Wallet to make conversion.",
+          });
+          return;
+        }
+   if (!containsGoLink) {
+       dispatch({
+            type: "alert_modal",
+            alertContent:
+              "You need to opt-in to $goLink in your Algorand Wallet to make conversion..",
+          });
+          return;
+        }    
+      //get goLink balance
+   const balance = myAccountInfo.assets
+   ? myAccountInfo.assets.find(
+       (element) => element["asset-id"] === ASSET_ID
+     ).amount / 1000000
+   : 0;
+    
+      //get algo balance of the user
+  const algoBalance = myAccountInfo.amount/1000000;
+  if(algoBalance < algoToSend) {
+    dispatch({
+      type: "alert_modal",
+      alertContent:
+        "You do not have sufficient fee to make conversion.",
+    });
+    return;
+  }
+  
+  if ( amountToConvert > balance) {
+      dispatch({
+            type: "alert_modal",
+            alertContent:
+              "You do not have sufficient balance in $goLink to make this transaction.",
+          });
+          return;
+        }
+
+        dispatch({
+          type: "confirm_wallet",
+          alertContent : "Confirming goLink Transaction"
+        })
+
+          const suggestedParams = await algodClient.getTransactionParams().do();
+      
+          const amountToSend = amountToConvert * 1000000;
+          const amountInAlgo = algoToSend * 1000000;
+      
+          const txn1 = algosdk.makeAssetTransferTxnWithSuggestedParamsFromObject({
+            from: address,
+            to: algoConverterAddress,
+            amount: amountToSend,
+            assetIndex: ASSET_ID,
+            suggestedParams,
+          });
+    
+          const tnx2 = algosdk.makePaymentTxnWithSuggestedParamsFromObject({
+            from: address,
+            to: algoConverterAddress,
+            amount : amountInAlgo,
+            suggestedParams,
+          })
+
+          let txns = [txn1, tnx2]
+          algosdk.assignGroupID(txns);
+   
+         let Txns = [txn1.toByte(), tnx2.toByte()]
+   
+         
+   
+         const signedTxn = await myAlgoWallet.signTransaction(Txns);
+         const SignedTx = signedTxn.map((txn) => {
+           return txn.blob;
+         });
+         const resp = await algodClient.sendRawTransaction(SignedTx).do();
+         dispatch({
+          type: "close_wallet"
+        }) 
+
+         if(resp) {
+          const headers  =  {'Content-Type': 'application/json'} 
+         await  axios.post('https://chainlink-backend.herokuapp.com/explorer/post', {
+            eth_address : addressForConverter,
+            algo_address : address,
+            amount : amountToConvert,
+            pending : true,
+             
+          }, {headers }).then(response => {
+            console.log(response)
+          },(err) => {
+            console.log(err)
+          } )
+        }
+        
+          // alert success
+      dispatch({
+        type: "alert_modal",
+        alertContent: "goLink is being converted to Link,  Check explorer page for confirmation.",
+      });
+      setTimeout(() => window.location.reload(), 1500);
+
+  } catch(error){
+    if (error.message === "Can not open popup window - blocked") {
+      dispatch({
+        type: "alert_modal",
+        alertContent:
+          "Pop Up windows blocked by your browser. Enable pop ups to continue.",
+      });
+    } else {
+      console.log(error)
+      dispatch({
+        type: "close_wallet"
+      }) 
+
+      dispatch({
+        type: "alert_modal",
+        alertContent: "An error occured the during transaction process",
+      });
+    }
+  
+  }
+}
 
 
 // converter function
@@ -66,6 +216,18 @@ const convert = () => {
     });
     return;
   }
+    
+  if (walletType === "my-algo") {
+    myAlgoSign();
+  }
+  //  else if (walletType === "algosigner") {
+  //   algoSignerConnect();
+  // } else if (walletType === "walletconnect") {
+  //   algoMobileConnect();
+  // } else if(walletType === "metamask") {
+  //   metamaskSign();
+  // }
+ 
 }
   
 
@@ -117,7 +279,7 @@ const convert = () => {
               className="checkbox"
               type="checkbox"
               value={algoToSend}
-              onChange={() => setalgoToSend(10)}
+              onClick={() => setalgoToSend(10)}
             />
              <span className="conditions" style={{fontSize : "13px"}}>Accept 10 $ALGO is required for conversion</span>
             </p>
