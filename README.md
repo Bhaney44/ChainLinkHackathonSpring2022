@@ -64,6 +64,5 @@ LINK Logo added to Algorand Network via [Pull Request #465](https://github.com/t
 
 [Algorand: Py-Algorand-SDK](https://github.com/algorand/py-algorand-sdk)
 
-
-
+[Algorand: Js-Algorand-SDK](https://github.com/algorand/js-algorand-sdk)
 
