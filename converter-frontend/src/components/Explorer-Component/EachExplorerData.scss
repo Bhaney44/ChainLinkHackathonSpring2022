@@ -1,0 +1,16 @@
+.explorer-item {
+    width: 100%;
+    display: flex;
+    min-height: 30px;
+    border-bottom: 1px solid darkgrey;
+    padding: 15px 0;
+    font-size: 16px;
+    align-items: center;
+ 
+ .eth, 
+ .algo, 
+ .amount {
+    width: 40%;
+ }
+
+}
