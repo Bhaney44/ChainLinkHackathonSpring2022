@@ -23,14 +23,6 @@ contract Converter_Escrow is Chainlink {
         emit TransferReceived(msg.sender, msg.value);
     }  
 
-     function withdraw(uint amount, address payable destAddr) public {
-        require(msg.sender == owner, "Only owner can withdraw funds"); 
-        require(amount <= balance, "Insufficient funds");
-        
-        destAddr.transfer(amount);
-        balance -= amount;
-        emit TransferSent(msg.sender, destAddr, amount);
-    }
     
     function transferERC20(IERC20 token, address to, uint256 amount) public {
         require(msg.sender == owner, "Only owner can withdraw funds"); 
