@@ -493,8 +493,8 @@ const NavBar = ({NavLink}) => {
           padding: "0px 5vw",
           letterSpacing: "0.5px",
           textTransform: "uppercase",
-          background: "var(--background)",
-          height: "var(--sm-hd-height-half)",
+          background: width > 600 ? "var(--background)" : "initial",
+          height: width>600 ? "var(--sm-hd-height-half)" : "0px",
           justifyContent: "space-between",
           borderTop: "1px solid var(--border-default)",
         }}
