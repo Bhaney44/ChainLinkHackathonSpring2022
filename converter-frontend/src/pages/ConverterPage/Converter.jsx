@@ -518,8 +518,9 @@ const metamaskSign = async () => {
   try {
     const amount = `${amountToConvert * 10**18}`
     const headers  =  {'Content-Type': 'application/json'} 
-     await transferBalance (eth_address, ethereumConverterAddress, amount)
-  
+   const resp =  await transferBalance (eth_address, ethereumConverterAddress, amount)
+    console.log(resp)
+  if(resp.status){
     await  axios.post('https://chainlink-backend.herokuapp.com/explorer/post', {
       eth_address : eth_address,
       algo_address : addressForConverter,
@@ -528,6 +529,10 @@ const metamaskSign = async () => {
        
     }, {headers }).then(response => {
       console.log(response)
+      dispatch({
+        type: "alert_modal",
+        alertContent: "Link is being converted to goLink,  Check explorer page for confirmation.",
+      });
     },(err) => {
       dispatch({
         type: "close_wallet"
@@ -539,13 +544,20 @@ const metamaskSign = async () => {
       });
       console.log(err)
     } )
+  }  else {
+    dispatch({
+      type: "close_wallet"
+    }) 
+
+    dispatch({
+      type: "alert_modal",
+      alertContent: "An error occured the during posting transaction",
+    });
+  }
    
 
-     dispatch({
-       type: "alert_modal",
-       alertContent: "Link is being converted to goLink,  Check explorer page for confirmation.",
-     });
-     setTimeout(() => window.location.reload(), 1500);
+   
+    //  setTimeout(() => window.location.reload(), 1500);
 
   } catch(error){
     dispatch({
@@ -559,6 +571,7 @@ const metamaskSign = async () => {
   }
   
 }
+
 
 // converter function
 const convert = () => {
