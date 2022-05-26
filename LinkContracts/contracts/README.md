@@ -1,2 +1,2 @@
-### goLink Smart Contract
+### Link Smart Contracts
 
