@@ -29,7 +29,6 @@
   position: -webkit-sticky;
   position: sticky;
   z-index: 2;
-  background: var(--background);
   top: calc(var(--sm-hd-height));
   border-bottom: 1px solid var(--border-default);
 }
