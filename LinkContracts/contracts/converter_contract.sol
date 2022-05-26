@@ -7,16 +7,16 @@ import "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contr
 
 contract Converter is ERC20{
 
-    // Source account that sends goLink to recipient 
+    // Source account that sends Link to recipient 
     address payable sourceAccount;
 
-    // Ethereum address of user (recieved from the API) 
+    // Ethereum address of user  
     address payable[] public recipient;
 
     // variable to temporarily store amount of goLink to be sent
     uint public amount;
 
-    // constructor to initialize params... address and amount from the API should be entered as parameters
+    // constructor to initialize params... 
     constructor (address recipient, uint amount){
         sourceAccount = payable(msg.sender);
         recipient = recipient;
@@ -24,7 +24,7 @@ contract Converter is ERC20{
 
 }
 
-    /// modifier to allow sourceAccount owno some methods
+    /// modifier to allow sourceAccount own some methods
     modifier onlyOwner() {
       require(msg.sender == sourceAccount);
       _;
