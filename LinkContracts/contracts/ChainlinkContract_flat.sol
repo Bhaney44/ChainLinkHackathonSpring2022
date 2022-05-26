@@ -1018,24 +1018,24 @@ abstract contract ChainlinkClient {
    * @param ensAddress The address of the ENS contract
    * @param node The ENS node hash
    */
-  function useChainlinkWithENS(address ensAddress, bytes32 node) internal {
-    s_ens = ENSInterface(ensAddress);
-    s_ensNode = node;
-    bytes32 linkSubnode = keccak256(abi.encodePacked(s_ensNode, ENS_TOKEN_SUBNAME));
-    ENSResolver_Chainlink resolver = ENSResolver_Chainlink(s_ens.resolver(linkSubnode));
-    setChainlinkToken(resolver.addr(linkSubnode));
-    updateChainlinkOracleWithENS();
-  }
+  //function useChainlinkWithENS(address ensAddress, bytes32 node) internal {
+    //s_ens = ENSInterface(ensAddress);
+    //s_ensNode = node;
+    //bytes32 linkSubnode = keccak256(abi.encodePacked(s_ensNode, ENS_TOKEN_SUBNAME));
+    //ENSResolver_Chainlink resolver = ENSResolver_Chainlink(s_ens.resolver(linkSubnode));
+    //setChainlinkToken(resolver.addr(linkSubnode));
+    //updateChainlinkOracleWithENS();
+  //}
 
   /**
    * @notice Sets the stored oracle contract with the address resolved by ENS
    * @dev This may be called on its own as long as `useChainlinkWithENS` has been called previously
    */
-  function updateChainlinkOracleWithENS() internal {
-    bytes32 oracleSubnode = keccak256(abi.encodePacked(s_ensNode, ENS_ORACLE_SUBNAME));
-    ENSResolver_Chainlink resolver = ENSResolver_Chainlink(s_ens.resolver(oracleSubnode));
-    setChainlinkOracle(resolver.addr(oracleSubnode));
-  }
+  //function updateChainlinkOracleWithENS() internal {
+    //bytes32 oracleSubnode = keccak256(abi.encodePacked(s_ensNode, ENS_ORACLE_SUBNAME));
+    //ENSResolver_Chainlink resolver = ENSResolver_Chainlink(s_ens.resolver(oracleSubnode));
+    //setChainlinkOracle(resolver.addr(oracleSubnode));
+  //}
 
   /**
    * @notice Ensures that the fulfillment is valid for this contract
