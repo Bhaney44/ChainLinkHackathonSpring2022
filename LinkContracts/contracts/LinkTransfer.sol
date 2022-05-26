@@ -5,6 +5,7 @@ pragma solidity ^0.8.7;
 import "https://github.com/Bhaney44/ChainLinkHackathonSpring2022/blob/main/RopstenLINK/link.sol";
 
 // Demo Contract to recieve and send out ERC-20 LINK (Goerli testnet)
+// Functions like an escrow that interacts with another contract to recieve ETH or an ERC-20 and then withdraws/send out LINK 
 
 contract Converter_Escrow is Chainlink {
     address public owner;
