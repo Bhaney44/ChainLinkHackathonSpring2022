@@ -907,3 +907,12 @@ iframe {
   padding: 19px 2px !important;
   text-align: center !important;
 }
+
+@media  screen and (max-width: 430px) {
+  .mobilenav {
+    right : 222px !important;
+  }
+  .dropDownConnect_items {
+    right: -34px !important;
+  }
+}

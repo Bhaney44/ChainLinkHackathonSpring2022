@@ -14,10 +14,11 @@
  	display: flex;
  	justify-content : space-between;
  	border-bottom: 2.1px solid blue;
+	 margin-left: 20px ;
 
   @media screen and (max-width: 800px){
     width : 71vw;
-    margin-left: -16px;
+    margin-left: 30px;
 
 }
   .header-block {
