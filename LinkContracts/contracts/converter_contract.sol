@@ -13,7 +13,7 @@ contract Converter is ERC20{
     // Ethereum address of user  
     address payable[] public recipient;
 
-    // variable to temporarily store amount of goLink to be sent
+    // variable to temporarily store amount of Link to be sent
     uint public amount;
 
     // constructor to initialize params... 
