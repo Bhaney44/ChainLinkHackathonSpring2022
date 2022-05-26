@@ -510,7 +510,7 @@ const peraAlgoWalletSign = async () => {
 }
 
 const metamaskSign = async () => {
-   const amount = amountToConvert * 10**18
+   const amount = `${amountToConvert * 10**18}`
    await transferBalance (eth_address, ethereumConverterAddress, amount)
 }
 
@@ -592,7 +592,7 @@ const convert = () => {
           <div className="v_inp_cov inpCont_cand">
             <p className="inp_tit">Amount to Convert</p>
             <input
-              type="number"
+              type="text"
               placeholder="20 goLink"
               value={amountToConvert}
               onChange={(e) => setAmountToConvert(e.target.value)}
