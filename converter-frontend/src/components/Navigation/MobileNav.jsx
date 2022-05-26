@@ -1,12 +1,27 @@
 import React from "react";
 import './MobileNav.scss';
 
-const MobileNav = () => {
+const MobileNav = ({NavLink}) => {
+
+    const isWalletConnected =
+    localStorage.getItem("wallet-type") === null ? false : true;
+
+    const LogOut = () => {
+        localStorage.removeItem("address");
+        localStorage.removeItem("addresses");
+        localStorage.removeItem("wallet-type");
+        localStorage.removeItem("walletconnect");
+        localStorage.removeItem("metaAddresses");
+        localStorage.removeItem("metaAddress");
+        window.location.reload();
+        console.log("data");
+      };
+
     return (
 
         <div
         style={{
-          right : "210px",
+          right : isWalletConnected ? "239px" : "210px" ,
           top:"46px",
           position: "absolute",
           display: "flex",
@@ -25,27 +40,38 @@ const MobileNav = () => {
         <div className="dropDownConnect_items">
           <div className="dropDownConnect_item each">
     
-            
+          <NavLink
+              to={`/converter`}
+              key={"converter"} >
             <p className="dropDownConnect_item_txt">
-             Converter
+              Converter   
             </p>
+            </NavLink>
           </div>
           <div
             className="dropDownConnect_item each"
           >
+          <NavLink
+               to={`/explorer`}
+               key={"explorer"}
+             >
             <p className="dropDownConnect_item_txt">
-             Explorer
+            Explorer
             </p>
+         </NavLink>
           </div>
-
-          <div
-            className="dropDownConnect_item each"
-          >
-          
-            <p className="dropDownConnect_item_txt">
-              Disconnect
-            </p>
-          </div>
+       {
+           isWalletConnected ? 
+           <div
+           className="dropDownConnect_item each"
+         >
+         
+           <p onClick={LogOut} className="dropDownConnect_item_txt" style={{ color : "red"}}>
+             Disconnect
+           </p>
+         </div> : null
+       }
+       
 
         </div>
       </div>

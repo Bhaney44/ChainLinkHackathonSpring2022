@@ -34,7 +34,7 @@ const MainPage = () => {
       />
       <Scroll word={"A converter for Algorand and Ethereum using Chainlink - TestNet"} />
       {
-        width < 850 ? <MobileNav /> : null
+        width < 850 ? <MobileNav NavLink={NavLink} /> : null
       }
       <NavBar NavLink={NavLink} />
    
