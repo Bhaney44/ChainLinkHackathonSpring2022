@@ -2,7 +2,7 @@
 
                 Ethereum <> Chainlink <> Algorand
 
-<img width="483" alt="Screen Shot 2022-05-25 at 12 35 28 AM" src="https://user-images.githubusercontent.com/43055154/170207096-05d6684e-9c8f-4fe5-a013-840b060d3d0c.png">
+<img width="512" alt="Screen Shot 2022-05-26 at 4 48 26 PM" src="https://user-images.githubusercontent.com/43055154/170601839-2a4a5558-b2df-41a4-9bb5-ff162adb3969.png">
 
 # Overview
 
