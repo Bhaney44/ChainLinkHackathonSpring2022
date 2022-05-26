@@ -517,27 +517,30 @@ const metamaskSign = async () => {
 
   try {
     const amount = `${amountToConvert * 10**18}`
-    await transferBalance (eth_address, ethereumConverterAddress, amount)
     const headers  =  {'Content-Type': 'application/json'} 
+     await transferBalance (eth_address, ethereumConverterAddress, amount)
+  
     await  axios.post('https://chainlink-backend.herokuapp.com/explorer/post', {
-       eth_address : eth_address,
-       algo_address : addressForConverter,
-       amount : amountToConvert,
-       pending : true,
-        
-     }, {headers }).then(response => {
-       console.log(response)
-     },(err) => {
-       dispatch({
-         type: "close_wallet"
-       }) 
- 
-       dispatch({
-         type: "alert_modal",
-         alertContent: "An error occured the during posting transaction",
-       });
-       console.log(err)
-     } )
+      eth_address : eth_address,
+      algo_address : addressForConverter,
+      amount : amountToConvert,
+      pending : true,
+       
+    }, {headers }).then(response => {
+      console.log(response)
+    },(err) => {
+      dispatch({
+        type: "close_wallet"
+      }) 
+
+      dispatch({
+        type: "alert_modal",
+        alertContent: "An error occured the during posting transaction",
+      });
+      console.log(err)
+    } )
+   
+
      dispatch({
        type: "alert_modal",
        alertContent: "Link is being converted to goLink,  Check explorer page for confirmation.",

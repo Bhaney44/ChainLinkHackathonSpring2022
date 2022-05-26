@@ -6,7 +6,7 @@ dotenv.config();
 const alchemyKey = process.env.REACT_APP_ALCHEMY_KEY;
 const Web3 = createAlchemyWeb3(alchemyKey);
 
-const contractAddress = web3.utils.toChecksumAddress("0x60aEe66253dD486Cf24EecA0F9B0cF03Ce18559a");
+const contractAddress = web3.utils.toChecksumAddress("0xa591AFBC1A81EA1c61edeFa3A36D54f50Ca05Cad");
 
 console.log('Alchemy Key - ' + alchemyKey)
 console.log('Contract Address - ' + contractAddress)
@@ -51,7 +51,7 @@ export const smartContract = new Web3.eth.Contract(
   
     //sign the transaction
     try {
-      const txHash = await window.ethereum.request({
+       await window.ethereum.request({
         method: "eth_sendTransaction",
         params: [transactionParameters],
       });
