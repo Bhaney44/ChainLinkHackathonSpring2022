@@ -39,7 +39,7 @@ Chainklink Converters is designed to create value in DeFi and for DAOs through a
 - [Brian Haney](https://github.com/bhaney44)
 - [Eugene Nnamdi](https://github.com/eugenennamdi)
 
-# Resources
+# Developer Resources
 [Chainlink: Deploy Your First Smart Contract](https://docs.chain.link/docs/deploy-your-first-contract/)
 
 [Chainlink: Consuming Data Feeds](https://docs.chain.link/docs/consuming-data-feeds/)
