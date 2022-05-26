@@ -49,4 +49,4 @@ contract ConverterResponse is ChainlinkClient {
 
 }
 
-// https://rinkeby.etherscan.io/address/0x3954920b419b2998ce671b9d92097ca354907c10
+// https://rinkeby.etherscan.io/address/0x334cdcf3cc39cf0d84d6adb10961400fe204f8bc
