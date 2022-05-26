@@ -2,10 +2,10 @@
 pragma solidity ^0.8.0;
 
 // *
-import "https://github.com/ChoiceCoin/converter/blob/main/ChoiceCoinERC20/ChoiceCoinERC20Contract.sol";
+import "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/token/ERC20/ERC20.sol";
 
 
-contract Converter is ChoiceCoin{
+contract Converter is ERC20{
 
     // Source account that sends goLink to recipient 
     address payable sourceAccount;
@@ -24,7 +24,7 @@ contract Converter is ChoiceCoin{
 
 }
 
-    /// modifier to allow sourceAccount owner only access to some methods
+    /// modifier to allow sourceAccount owno some methods
     modifier onlyOwner() {
       require(msg.sender == sourceAccount);
       _;
