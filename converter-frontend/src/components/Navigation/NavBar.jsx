@@ -10,6 +10,8 @@ import WalletConnect from "@walletconnect/client";
 import QRCodeModal from "algorand-walletconnect-qrcode-modal";
 import {ethers} from 'ethers';
 import { useWindowSize } from "@react-hook/window-size";
+import { smartContract } from "../../utils/contract-interact";
+// import { getAccountBalance } from "../../utils/contract-interact";
 
 
 const NavBar = ({NavLink}) => {
@@ -59,7 +61,6 @@ const NavBar = ({NavLink}) => {
 
   let addrArr = [];
   
-
   useEffect(() => {
    if(walletAddress) {
     addresses?.forEach(async (item) => {
@@ -91,6 +92,9 @@ const NavBar = ({NavLink}) => {
     });
    } 
    else if(eth_address) {
+    // const bal =  async () => await  getAccountBalance(eth_address)
+    // console.log(bal)
+
       // Requesting balance method
       window.ethereum
       .request({ 
@@ -98,8 +102,9 @@ const NavBar = ({NavLink}) => {
         params: [eth_address, "latest"] 
       })
       .then((bal) => {
+         const eth_bal =  ethers.utils.formatEther(bal)
          addrArr.push({
-            balance : ethers.utils.formatEther(bal),
+            balance : Number(eth_bal).toFixed(2) ,
             address: eth_address
           })
         setBalance(addrArr)
@@ -265,7 +270,7 @@ const NavBar = ({NavLink}) => {
     localStorage.setItem("metaAddress", metaAddress);
     localStorage.setItem("metaAddresses", addresses);
 
-    // window.location.reload();
+    window.location.reload();
     
     // const chainId = await window.ethereum.request({ method: 'eth_chainId'});
    } else {

@@ -318,12 +318,12 @@ input:invalid {
 }
 
 .conditions {
-   margin-right: 155px;
+   margin-right: 120px;
 }
 
 @media screen and (max-width: 400px) {
   .conditions{
-    margin-right: 108px;
+    margin-right: 33px;
   }
   
 }
