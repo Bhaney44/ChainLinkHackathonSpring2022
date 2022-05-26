@@ -8,8 +8,6 @@ const Web3 = createAlchemyWeb3(alchemyKey);
 
 const contractAddress = web3.utils.toChecksumAddress("0xa591AFBC1A81EA1c61edeFa3A36D54f50Ca05Cad");
 
-console.log('Alchemy Key - ' + alchemyKey)
-console.log('Contract Address - ' + contractAddress)
 const contractABI = require('../contract-ABI/chainlink.json');
 
 export const smartContract = new Web3.eth.Contract(

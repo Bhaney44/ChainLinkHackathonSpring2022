@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useDispatch } from "react-redux";
 import MyAlgoConnect from "@randlabs/myalgo-connect";
 import WalletConnect from "@walletconnect/client"; 
@@ -6,14 +6,14 @@ import { formatJsonRpcRequest } from "@json-rpc-tools/utils";
 import QRCodeModal from "algorand-walletconnect-qrcode-modal";
 import axios from 'axios';
 import algosdk from "algosdk";
-import "../styles/converter.css";
-import { transferBalance } from "../utils/contract-interact";
+import "../../styles/converter.css";
+import { transferBalance } from "../../utils/contract-interact";
 
 
 const Converter = () => {
   // algod Client
   const algod_token = {
-    "X-API-Key": "AE6Ave7wNH8bKB1SiwutOakoTHreBlWZ9TMKElZs"
+    "X-API-Key": ""
   }
   const algod_address = "https://testnet-algorand.api.purestake.io/ps2";
   const headers = "";
@@ -613,7 +613,7 @@ const convert = () => {
     <div className="create_elt">
       <div className="create_elt_inn">
         <div className="crt_hd">
-          <p>Link Converter</p>
+          <p className="converter-header">Link Converter</p>
         </div>
 
 

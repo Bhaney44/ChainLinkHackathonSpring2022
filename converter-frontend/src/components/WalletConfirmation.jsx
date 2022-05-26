@@ -2,7 +2,6 @@ import { useSelector, useDispatch } from "react-redux";
 import BarLoader from "react-spinners/BarLoader";
 
 const WalletConfirmation = () => {
-    const darkTheme = useSelector((state) => state.status.darkTheme);
     const dispatch = useDispatch()
     const { openWallet, walletContent } = useSelector(
       (state) => state.status.confirmWallet
@@ -22,11 +21,11 @@ const WalletConfirmation = () => {
           padding : "3px",
         //   alignItems: "center",
           flexDirection: "column",
-          background : darkTheme ? "#4a4a4a" : "whitesmoke" ,
+          background :  "whitesmoke" ,
         //   color: "var(--wht)",
          
         //   fontSize: "14px",
-          fontWeight: darkTheme ? 400 : 500,
+          fontWeight: 500,
           textTransform: "uppercase",
         }}
         className="confirmation"
@@ -60,7 +59,7 @@ const WalletConfirmation = () => {
           padding : "5px", 
           fontSize : "12px",
           fontWeight : "bold",
-          color : darkTheme ? "#ff4343" : "red",
+          color :"red",
           // color: darkTheme ? "#fff" : "black",
             }} 
           className="wallet_content" >
@@ -68,7 +67,7 @@ const WalletConfirmation = () => {
         </p>
         <BarLoader
         // style={{marginLeft : "20px"}}
-          color={darkTheme ? "#eee" : "#888"}
+          color={ "#888"}
           size={150}
           width={250}
           speedMultiplier="0.4"

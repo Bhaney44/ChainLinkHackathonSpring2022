@@ -2,6 +2,7 @@ import { combineReducers } from "redux";
 
 const status = (
   state = {
+  
     alertModal: { openModal: false, modalContent: "" },
     confirmWallet: { openWallet: false, walletContent: ""},
     addressNum: 0,
