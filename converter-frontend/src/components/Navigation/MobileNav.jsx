@@ -21,7 +21,7 @@ const MobileNav = ({NavLink}) => {
 
         <div
         style={{
-          right : isWalletConnected ? "250px" : "200px" ,
+          right : isWalletConnected ? "254px" : "200px" ,
           top:"46px",
           position: "absolute",
           display: "flex",

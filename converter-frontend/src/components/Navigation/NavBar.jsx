@@ -1,6 +1,6 @@
 import algosdk from "algosdk";
 import { useDispatch, useSelector } from "react-redux";
-import { useEffect, useState } from "react";
+import { useEffect, useState} from "react";
 import MyAlgoConnect from "@randlabs/myalgo-connect";
 import img from '../../assets/c.png';
 import { CopyToClipboard } from "react-copy-to-clipboard";
@@ -10,8 +10,7 @@ import WalletConnect from "@walletconnect/client";
 import QRCodeModal from "algorand-walletconnect-qrcode-modal";
 import {ethers} from 'ethers';
 import { useWindowSize } from "@react-hook/window-size";
-// import { smartContract } from "../../utils/contract-interact";
-// import { getAccountBalance } from "../../utils/contract-interact";
+
 
 
 const NavBar = ({NavLink}) => {
@@ -45,11 +44,13 @@ const NavBar = ({NavLink}) => {
     console.log("data");
   };
 
+ 
+
   const [balance, setBalance] = useState([]);
 
   const algodClient = new algosdk.Algodv2(
     {
-      "X-API-Key": "AE6Ave7wNH8bKB1SiwutOakoTHreBlWZ9TMKElZs", //your API key gotten from purestake API,
+      "X-API-Key": "", //your API key gotten from purestake API,
     },
     "https://testnet-algorand.api.purestake.io/ps2",
     ""
@@ -94,6 +95,7 @@ const NavBar = ({NavLink}) => {
    else if(eth_address) {
     // const bal =  async () => await  getAccountBalance(eth_address)
     // console.log(bal)
+
 
       // Requesting balance method
       window.ethereum

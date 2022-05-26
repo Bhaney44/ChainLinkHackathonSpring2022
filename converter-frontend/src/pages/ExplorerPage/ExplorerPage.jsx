@@ -11,6 +11,7 @@ const ExplorerPage = () => {
     const onSearchChange = (event) => {
         setSearchField(event.target.value);
        }
+       // eslint-disable-next-line
     const filteredData = data.filter(address =>{
      if(address.algo_address.toLowerCase().includes(searchField.toLowerCase())) {
         return address.algo_address.toLowerCase().includes(searchField.toLowerCase()) 

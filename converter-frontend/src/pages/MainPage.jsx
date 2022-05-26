@@ -2,7 +2,7 @@ import NavBar from "../components/Navigation/NavBar";
 import Scroll from "../components/Scroll";
 import { NavLink, Route, Routes } from "react-router-dom";
 import { useWindowSize } from "@react-hook/window-size";
-import Converter from "../components/Converter";
+import Converter from "./ConverterPage/Converter";
 import ExplorerPage from "./ExplorerPage/ExplorerPage";
 import LandingPage from "./LandingPage/LandingPage";
 import MobileNav from "../components/Navigation/MobileNav";

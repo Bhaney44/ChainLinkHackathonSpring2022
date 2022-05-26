@@ -910,9 +910,16 @@ iframe {
 
 @media  screen and (max-width: 430px) {
   .mobilenav {
-    right : 222px !important;
+    right : 229px !important;
   }
   .dropDownConnect_items {
     right: -34px !important;
   }
+}
+
+.converter-header {
+  font-weight: bolder;
+  color: blue;
+  font-family: 'Anybody', 'Courier New', Courier, monospace !important ;
+
 }
