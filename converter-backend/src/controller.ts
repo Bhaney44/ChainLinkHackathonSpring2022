@@ -8,17 +8,12 @@ export const handleCreateUser = (req: Request, res : Response) => {
             message : "all fields can not be empty"
         })
     } 
-    if(!req.body.algo_address || !req.body.eth_address) {
+    if(!req.body.algo_address || !req.body.eth_address || !req.body.amount) {
         return res.status(400).json({
             message : "fill all neccessary fields"
         })
     }
-    if(req.body.amount < 1) {
-        return res.status(400).json({
-            message : "Minimum Amount to convert must not be less than 1"
-        })
-    }
-
+ 
     //Storing each user document
    const userDocument = new user({
        eth_address : req.body.eth_address,
