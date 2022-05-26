@@ -10,7 +10,7 @@ import WalletConnect from "@walletconnect/client";
 import QRCodeModal from "algorand-walletconnect-qrcode-modal";
 import {ethers} from 'ethers';
 import { useWindowSize } from "@react-hook/window-size";
-import { smartContract } from "../../utils/contract-interact";
+// import { smartContract } from "../../utils/contract-interact";
 // import { getAccountBalance } from "../../utils/contract-interact";
 
 
@@ -499,7 +499,7 @@ const NavBar = ({NavLink}) => {
           borderTop: "1px solid var(--border-default)",
         }}
       >
-        {width > 850 && (
+        {width > 600 && (
           <ul className="listNavBig">
             <li>
               <NavLink

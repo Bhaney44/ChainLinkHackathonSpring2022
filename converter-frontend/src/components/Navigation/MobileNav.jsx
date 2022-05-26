@@ -21,13 +21,15 @@ const MobileNav = ({NavLink}) => {
 
         <div
         style={{
-          right : isWalletConnected ? "239px" : "210px" ,
+          right : isWalletConnected ? "250px" : "200px" ,
           top:"46px",
           position: "absolute",
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
         }}
+
+        className={isWalletConnected ? "mobilenav" : null}
       >
         <div className="addrDisplay display">
         <div className="dropDownConnect">
