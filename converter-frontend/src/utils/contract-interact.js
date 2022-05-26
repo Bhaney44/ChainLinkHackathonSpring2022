@@ -53,9 +53,14 @@ export const smartContract = new Web3.eth.Contract(
         method: "eth_sendTransaction",
         params: [transactionParameters],
       });
+
+      return {
+        status: "success"
+      };
+    
     } catch (error) {
       return {
-        status: "😥 " + error.message,
+        error: "😥 " + error.message,
       };
     }
   };

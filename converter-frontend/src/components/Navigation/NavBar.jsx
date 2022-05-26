@@ -121,7 +121,7 @@ const NavBar = ({NavLink}) => {
 
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  });
+  }, []);
 
   const myAlgoConnect = async () => {
     dispatch({
