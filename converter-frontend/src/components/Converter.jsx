@@ -7,6 +7,7 @@ import QRCodeModal from "algorand-walletconnect-qrcode-modal";
 import axios from 'axios';
 import algosdk from "algosdk";
 import "../styles/converter.css";
+import { transferBalance } from "../utils/contract-interact";
 
 
 const Converter = () => {
@@ -22,6 +23,7 @@ const Converter = () => {
   const isWalletConnected =
   localStorage.getItem("wallet-type") === null ? false : true;
   const isThereAddress = localStorage.getItem("address");
+  const eth_address = localStorage.getItem("metaAddress");
   const algoConverterAddress = "FJJ7FFJ4ZPIKTB2VN3ZM6HX4IBFIUVIEKQCMMSSPXVOPFB57XOT4OF6C5Y";
   const ethereumConverterAddress = "0x4F03c13d9727AAF5ED7382F9A507b4109A5b23C6"
 
@@ -507,6 +509,11 @@ const peraAlgoWalletSign = async () => {
 
 }
 
+const metamaskSign = async () => {
+   const amount = amountToConvert * 10**18
+   await transferBalance (eth_address, ethereumConverterAddress, amount)
+}
+
 // converter function
 const convert = () => {
 
@@ -548,9 +555,9 @@ const convert = () => {
   else if (walletType === "walletconnect") {
     peraAlgoWalletSign();
   } 
-  // else if(walletType === "metamask") {
-  //   metamaskSign();
-  // }
+  else if(walletType === "metamask") {
+    metamaskSign();
+  }
  
 }
   
