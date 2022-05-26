@@ -13,7 +13,7 @@ import { transferBalance } from "../utils/contract-interact";
 const Converter = () => {
   // algod Client
   const algod_token = {
-    "X-API-Key": ""
+    "X-API-Key": "AE6Ave7wNH8bKB1SiwutOakoTHreBlWZ9TMKElZs"
   }
   const algod_address = "https://testnet-algorand.api.purestake.io/ps2";
   const headers = "";
@@ -581,7 +581,8 @@ const convert = () => {
     });
     return;
   }
-  if(!algoToSend) {
+  
+  if(isThereAddress && !algoToSend) {
     dispatch({
       type: "alert_modal",
       alertContent: "You have To Accept Terms & Conditions Before Making Conversion",
@@ -619,16 +620,16 @@ const convert = () => {
           </div>
 
           <div className="v_inp_cov inpCont_cand">
-            <p className="inp_tit">Ethereum Address</p>
+            <p className="inp_tit">{eth_address ? "Algorand Address" : "Ethereum Address"}</p>
             <input
               type="text"
-              placeholder="0x57....a4a3"
+              placeholder={eth_address ? " ZW3IS....7W754" :"0x57....a4a3"}
               value={addressForConverter}
               pattern="^0x[a-fA-F0-9]{40}$"
               onChange={(e) => setAddressForConverter(e.target.value)}
             />
             <p className="ensure_txt">
-              Address must be of standard length of an eth wallet.
+              Address must be of standard length of an { eth_address ? "algo" : "eth"} wallet.
             </p>
           </div>
 
@@ -636,7 +637,7 @@ const convert = () => {
             <p className="inp_tit">Amount to Convert</p>
             <input
               type="text"
-              placeholder="20 goLink"
+              placeholder={eth_address ? "ERC20 Link" : "goLink"}
               value={amountToConvert}
               onChange={(e) => setAmountToConvert(e.target.value)}
             />
@@ -644,20 +645,25 @@ const convert = () => {
               Enter goLink amount to convert to ERC20 Link.
             </p>
           </div>
+          {
+            isThereAddress ? (
+              <div className="v_inp_cov inpCont_cand">
+              <p>Conversion Fee</p>
+              <p className="check">
+              <input
+                style={{cursor : "pointer"}}
+                className="checkbox"
+                type="checkbox"
+                value={algoToSend}
+                onClick={() => setalgoToSend(10)}
+              />
+               <span className="conditions" style={{fontSize : "13px"}}>Accept 10 $ALGO is required for conversion</span>
+              </p>
+            </div>
+            ) : null
+          }
 
-          <div className="v_inp_cov inpCont_cand">
-            <p>Conversion Fee</p>
-            <p className="check">
-            <input
-              style={{cursor : "pointer"}}
-              className="checkbox"
-              type="checkbox"
-              value={algoToSend}
-              onClick={() => setalgoToSend(10)}
-            />
-             <span className="conditions" style={{fontSize : "13px"}}>Accept 10 $ALGO is required for conversion</span>
-            </p>
-          </div>
+         
 
           <br />
 
