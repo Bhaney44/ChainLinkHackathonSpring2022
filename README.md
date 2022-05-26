@@ -12,7 +12,7 @@ Repository made for the Spring 2022 [ChainLink Hackathon](https://chain.link/hac
 Hackathon White Paper available on [GitHub](https://github.com/Bhaney44/ChainLinkHackathonSpring2022) and [SSRN](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4116942).
 
 # Problem
-How do we create an interchain protocol between Ethereum and Algorand? The problem requires using a Chainlink node for data control, allowing for interchain data transmission, validation, and processing. Additional, the problem requires creating a collatoral form of LINK on Algorand to allow for cross chain conversions. The collatoralized LINK will allow Chainlink smart contracts to recieve data from Algorand enabling Chainlink smart contracts to use Algorand data in automating asset distributions on Ethereum.
+How do we create an interchain protocol between Ethereum and Algorand? The problem requires using a Chainlink node for data control, allowing for interchain data transmission, validation, and processing. Additionally, the problem requires creating a collatoral form of LINK on Algorand to allow for cross chain conversions. The collatoralized LINK will allow Chainlink smart contracts to recieve data from Algorand enabling Chainlink smart contracts to use Algorand data in automating asset distributions on Ethereum.
 
 # Solution
 <img width="762" alt="Screen Shot 2022-05-25 at 1 28 12 AM" src="https://user-images.githubusercontent.com/43055154/170217565-e2babe0f-6404-4c54-87d7-f5464e1c0f08.png">
