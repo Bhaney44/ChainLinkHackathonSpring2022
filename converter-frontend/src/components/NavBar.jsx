@@ -1,5 +1,4 @@
 import algosdk from "algosdk";
-import { ASSET_ID } from "../utils/constants";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import MyAlgoConnect from "@randlabs/myalgo-connect";
@@ -15,6 +14,7 @@ import { useWindowSize } from "@react-hook/window-size";
 
 const NavBar = ({NavLink}) => {
   const dispatch = useDispatch();
+  const ASSET_ID = 89483596;
 
   const addressNum = useSelector((state) => state.status.addressNum);
   const isWalletConnected =
@@ -47,7 +47,7 @@ const NavBar = ({NavLink}) => {
 
   const algodClient = new algosdk.Algodv2(
     {
-      "X-API-Key": "", //your API key gotten from purestake API,
+      "X-API-Key": "AE6Ave7wNH8bKB1SiwutOakoTHreBlWZ9TMKElZs", //your API key gotten from purestake API,
     },
     "https://testnet-algorand.api.purestake.io/ps2",
     ""
@@ -66,7 +66,7 @@ const NavBar = ({NavLink}) => {
       const myAccountInfo = await algodClient.accountInformation(item).do();
       const bal =
         myAccountInfo.assets.find((element) => element["asset-id"] === ASSET_ID)
-          ?.amount / 100000000;
+          ?.amount / 1000000;
         
         
      addrArr.push({ balance: !!bal ? bal : 0, address: item });
@@ -79,7 +79,6 @@ const NavBar = ({NavLink}) => {
         })
       
 
-
       if (addrArr?.length === addresses?.length) {
         dispatch({
           type: "setAlgoAddress",
@@ -87,7 +86,7 @@ const NavBar = ({NavLink}) => {
           addr: addrArr[0]?.address,
         });
         setBalance(addrArr);
-        // console.log(balance)
+        
       }
     });
    } 
@@ -115,7 +114,7 @@ const NavBar = ({NavLink}) => {
 
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  });
 
   const myAlgoConnect = async () => {
     dispatch({
@@ -266,7 +265,7 @@ const NavBar = ({NavLink}) => {
     localStorage.setItem("metaAddress", metaAddress);
     localStorage.setItem("metaAddresses", addresses);
 
-    window.location.reload();
+    // window.location.reload();
     
     // const chainId = await window.ethereum.request({ method: 'eth_chainId'});
    } else {
@@ -366,7 +365,7 @@ const NavBar = ({NavLink}) => {
                 <div className="addrDispMain">
                   <div className="addrDisplayInn">
                     <div className="addrBalance">
-                    {balance[addressNum]?.balance.toLocaleString()} <img src={img} style={{width : '13px', marginTop : '0px', marginLeft : '2px'}} alt="chain logo"/>
+                    {balance[addressNum]?.balance} <img src={img} style={{width : '13px', marginTop : '0px', marginLeft : '2px'}} alt="chain logo"/>
                     </div>
 
                     <CopyToClipboard text={balance[addressNum]?.address}>
@@ -386,13 +385,13 @@ const NavBar = ({NavLink}) => {
                       <div
                         key={index}
                         className="dropDownConnect_item"
-                        onClick={() => {
-                          dispatch({
-                            type: "setAlgoAddress",
-                            addressIndex: index,
-                            addr: item.address,
-                          });
-                        }}
+                        // onClick={() => {
+                        //   dispatch({
+                        //     type: "setAlgoAddress",
+                        //     addressIndex: index,
+                        //     addr: item.address,
+                        //   });
+                        // }}
                       >
                         <p className="dropDownConnect_item_txt">
                           {item.address}
