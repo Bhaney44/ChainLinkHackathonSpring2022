@@ -1,4 +1,4 @@
-# Chainlink Converters
+# Chainlink Converter
 
 <img width="512" alt="Screen Shot 2022-05-26 at 4 48 26 PM" src="https://user-images.githubusercontent.com/43055154/170601839-2a4a5558-b2df-41a4-9bb5-ff162adb3969.png">
 
