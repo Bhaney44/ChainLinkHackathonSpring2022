@@ -1,16 +1,16 @@
-import NavBar from "../components/NavBar";
+import NavBar from "../components/Navigation/NavBar";
 import Scroll from "../components/Scroll";
-import { useSelector } from "react-redux";
 import { NavLink, Route, Routes } from "react-router-dom";
 import { useWindowSize } from "@react-hook/window-size";
 import Converter from "../components/Converter";
 import ExplorerPage from "./ExplorerPage/ExplorerPage";
 import LandingPage from "./LandingPage/LandingPage";
+import MobileNav from "../components/Navigation/MobileNav";
 
 const MainPage = () => {
 
   const [width] = useWindowSize();
-  const darkTheme = useSelector((state) => state.status.darkTheme);
+
 
   return (
     <main
@@ -26,14 +26,18 @@ const MainPage = () => {
           content: "",
           width: "100%",
           height: "100%",
-          opacity:  darkTheme ? 0.088 : 0.078,
+          opacity:  0.078,
           position: "fixed",
           pointerEvents: "none",
           background: `url("https://i.postimg.cc/vZfTS6zb/ch.png")`,
         }}
       />
       <Scroll word={"A converter for Algorand and Ethereum using Chainlink - TestNet"} />
-      <NavBar darkTheme={darkTheme} NavLink={NavLink} />
+      {
+        width < 850 ? <MobileNav /> : null
+      }
+      <NavBar NavLink={NavLink} />
+   
      <Routes>
         <Route path="/converter" element={<Converter/>} />
         <Route path="/" element={<LandingPage />} />

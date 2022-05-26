@@ -896,3 +896,14 @@ iframe {
   margin-left: 20px;
 }
 
+.navigation {
+  border: none !important;
+  background: initial !important;
+}
+.display {
+  position: fixed !important;
+}
+.each {
+  padding: 19px 2px !important;
+  text-align: center !important;
+}
