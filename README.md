@@ -1,6 +1,7 @@
 # Chainlink Converter
 
-<img width="512" alt="Screen Shot 2022-05-26 at 4 48 26 PM" src="https://user-images.githubusercontent.com/43055154/170601839-2a4a5558-b2df-41a4-9bb5-ff162adb3969.png">
+<img width="316" alt="Screen Shot 2022-05-27 at 11 01 57 AM" src="https://user-images.githubusercontent.com/43055154/170766236-e2184008-a205-43aa-9624-3ad912c773fd.png">
+
 
 # Overview
 
@@ -29,6 +30,9 @@ LINK Logo added to Algorand Network via [Pull Request #465](https://github.com/t
 # Value
 
 Chainklink Converters is designed to create value in DeFi and for DAOs through a software as a service model. For DeFi, creating interoperable systems helps projects grow their asset value with interoperable capability and by creating opportunity for cross chain arbitrage bots to improve market efficiencies across networks. For DAOs, the Converter allows for L2 DAOs to grow beyong a single blockchain which creates value through diversification and functional capabilities. For example, a DAO may wish to leverage DeFi on Ethereum, but choose to use Algorand for governance given the different offerings of the L1 blockchains. Our interchain software services using the Chainlink Converter may be made open to the public, or reserved for specific DeFi or DAO clientele. 
+
+<img width="512" alt="Screen Shot 2022-05-26 at 4 48 26 PM" src="https://user-images.githubusercontent.com/43055154/170601839-2a4a5558-b2df-41a4-9bb5-ff162adb3969.png">
+
 
 # Contributors
 - [Samuel Tosin](https://github.com/samuellyworld)
