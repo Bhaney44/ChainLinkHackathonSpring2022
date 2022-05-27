@@ -6,7 +6,7 @@
 
 Linking blockchains is a hard problem, with a great solution – Chainlink. Chainlink is a series of Decentralized Oracle Networks (DONs), which are information systems maintained by a committee of nodes.[[1]](https://chain.link/whitepaper)  DONs act as powerful abstraction layers, offering interfaces for smart contracts, and decentralized off-chain computing resources.  Building with Chainlink, this Project provides a new solution to the interoperability problem, which refers to the ability of blockchains to seamlessly integrate with one another.
 
-View our [Demo on YouTube](https://www.youtube.com/watch?v=OnU8OtDLYEA). Repository made for the Spring 2022 [ChainLink Hackathon](https://chain.link/hackathon). Hackathon White Paper available on [GitHub](https://github.com/Bhaney44/ChainLinkHackathonSpring2022) and [SSRN](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4116942).
+Repository made for the Spring 2022 [ChainLink Hackathon](https://chain.link/hackathon). View our [Demo on YouTube](https://www.youtube.com/watch?v=OnU8OtDLYEA). Hackathon White Paper available on [GitHub](https://github.com/Bhaney44/ChainLinkHackathonSpring2022) and [SSRN](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4116942).
 
 # Problem
 How do we create an interchain protocol between Ethereum and Algorand? The problem requires using a Chainlink node for data control, allowing for interchain data transmission, validation, and processing. Additionally, the problem requires creating a collatoral form of LINK on Algorand to allow for cross chain conversions. The collatoralized LINK will allow Chainlink smart contracts to recieve data from Algorand enabling Chainlink smart contracts to use Algorand data in automating asset distributions on Ethereum.
