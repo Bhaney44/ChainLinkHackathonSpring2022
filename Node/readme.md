@@ -3,8 +3,6 @@
 This directory is for files relating to validating Algorand data on the Ethereum blockchain.
 The validation process utilizes a Chainlink node to inform a smart contract for asset conversion.
 
-]
-
 We tapped the block-farms.io Chainlink node service which can connect any private or public, premium or free API endpoint and securely host the external adapter that our smart contract requires.
 
 The Chainlink node service enables us to tap data that the smart contract requires to process a payment.
