@@ -5,7 +5,7 @@ pragma solidity ^0.8.7;
 import "https://github.com/Bhaney44/ChainLinkHackathonSpring2022/blob/main/TestNetLink/link.sol";
 
 
-contract Converter_Escrow is Chainlink {
+contract LinkTransfer is Chainlink {
     address public owner;
     uint256 public balance;
     
