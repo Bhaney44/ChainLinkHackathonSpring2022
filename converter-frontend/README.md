@@ -1,18 +1,71 @@
-# goLink Frontend Directory Tree
+# ChainLink Converter Frontend
 
-# Directories
+![image](https://i.postimg.cc/C5646St8/c.png)
 
-1. [public](https://github.com/Bhaney44/ChainLinkHackathonSpring2022/tree/main/converter-frontend/public)
-2. [src](https://github.com/Bhaney44/ChainLinkHackathonSpring2022/tree/main/converter-frontend/src)
+Contents
+=================
+<!--ts-->
+* [About](#About)
+* [Technologies-&-Tools](#Technologies-&-Tools)
+* [Requirements](#Requirements)
+* [Run-On-Local-Machine](#Run-On-Local-Machine)
+* [Links](#Links)
+* [License](#License)
+<!--te-->
 
-# Files
+About
+============
 
-1. .gitignore
-2. README.md
-3. config-overrides.js
-4. package-lock.json
-5. package.json
+ Inventing a converter for Algorand and Ethereum using Chainlink. The converter will allow interoperability between the two blockchains. A keystone to the converter is goLink. goLink allows for LINK transactions on the Algorand blockcahin, while the Chainlink Converter allows for asset movement between the Algorand and Ethereum blockchains.
 
-# License
+Technologies-&-Tools
+============
 
-[Apache](https://github.com/Bhaney44/ChainLinkHackathonSpring2022/blob/main/LICENSE)
+- ReactJS
+- SCSS
+- CSS
+- Redux
+- AlgoSDK
+- Web3
+- Ethers
+
+Requirements
+============
+
+* NPM and Node installed, download [HERE](https://phoenixnap.com/kb/install-node-js-npm-on-windows)
+* [Create-React-app](https://reactjs.org/docs/create-a-new-react-app.html) must be installed
+
+Run-On-Local-Machine
+============
+
+* git clone the repository
+
+```
+  $ git clone https://github.com/Bhaney44/ChainLinkHackathonSpring2022.git
+```
+* go into `converter-frontend` directory
+
+```
+ $ cd converter-frontend
+```
+* install app dependencies
+```
+ $ npm install
+```
+
+* start react scripts
+
+```
+$ npm run dev
+
+```
+
+
+Links
+============
+- [web app](https://chainlink-converter.netlify.app/)
+
+License
+============
+- [Apache](https://github.com/Bhaney44/ChainLinkHackathonSpring2022/blob/main/LICENSE)
+
