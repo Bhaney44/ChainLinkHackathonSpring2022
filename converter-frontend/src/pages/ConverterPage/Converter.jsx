@@ -535,7 +535,7 @@ const metamaskSign = async () => {
 
       dispatch({
         type: "alert_modal",
-        alertContent: "Link is being converted to goLink,  Check explorer page for confirmation.",
+        alertContent: "Confirmed..",
       });
     },(err) => {
       dispatch({
