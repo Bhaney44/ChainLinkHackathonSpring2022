@@ -26,7 +26,7 @@ Technologies-&-Tools
 - CSS
 - Redux
 - AlgoSDK
-- Web3
+- Web3.js
 - Ethers
 
 Requirements
