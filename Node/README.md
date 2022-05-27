@@ -3,16 +3,18 @@
 This directory is for files relating to validating Algorand data on the Ethereum blockchain.
 The validation process utilizes a Chainlink node to inform a smart contract for asset conversion.
 
-]
 
 We tapped the block-farms.io Chainlink node service which can connect any private or public, premium or free API endpoint and securely host the external adapter that our smart contract requires.
 
 The Chainlink node service enables us to tap data that the smart contract requires to process a payment.
 
+```
 curl -X POST -H "Content-type: application/json" -d '{"eth_address":"0x2f318C334780961FB129D2a6c30D0763d9a5C340"}' 'https://chainlink-backend.herokuapp.com/explorer/transaction'
+```
 
 The data from this curl request is made available to the Smart Contract.
 
+```
 //SPDX-License-Identifier: MIT
 pragma solidity ^0.8.7;
 
@@ -65,4 +67,5 @@ contract GenericLargeResponse is ChainlinkClient {
     amount = _amount;
   }
 
-} 
+}
+```
