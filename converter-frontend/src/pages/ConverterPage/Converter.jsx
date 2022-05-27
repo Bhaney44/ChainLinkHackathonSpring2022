@@ -13,7 +13,7 @@ import { transferBalance } from "../../utils/contract-interact";
 const Converter = () => {
   // algod Client
   const algod_token = {
-    "X-API-Key": ""
+    "X-API-Key": "Your API Key"
   }
   const algod_address = "https://testnet-algorand.api.purestake.io/ps2";
   const headers = "";
@@ -160,9 +160,9 @@ const myAlgoSign = async () => {
           // alert success
       dispatch({
         type: "alert_modal",
-        alertContent: "goLink is being converted to Link,  Check explorer page for confirmation.",
+        alertContent: "Confirmed..",
       });
-      setTimeout(() => window.location.reload(), 1500);
+      setTimeout(() => window.location.reload(), 2000);
 
   } catch(error){
     if (error.message === "Can not open popup window - blocked") {
@@ -314,7 +314,7 @@ const algoSignerConnect = async () => {
             // alert success
       dispatch({
         type: "alert_modal",
-        alertContent: "goLink is being converted to Link,  Check explorer page for confirmation.",
+        alertContent: "Confirmed..",
       });
       setTimeout(() => window.location.reload(), 1500);
 
@@ -481,7 +481,7 @@ const peraAlgoWalletSign = async () => {
       // alert success
   dispatch({
     type: "alert_modal",
-    alertContent: "goLink is being converted to Link,  Check explorer page for confirmation.",
+    alertContent: "Confirmed..",
   });
   setTimeout(() => window.location.reload(), 1500);
       } catch(error) {
@@ -519,8 +519,9 @@ const metamaskSign = async () => {
     const amount = `${amountToConvert * 10**18}`
     const headers  =  {'Content-Type': 'application/json'} 
    const resp =  await transferBalance (eth_address, ethereumConverterAddress, amount)
-    console.log(resp)
+   
   if(resp.status){
+    
     await  axios.post('https://chainlink-backend.herokuapp.com/explorer/post', {
       eth_address : eth_address,
       algo_address : addressForConverter,
@@ -528,10 +529,10 @@ const metamaskSign = async () => {
       pending : true,
        
     }, {headers }).then(response => {
-      console.log(response)
       dispatch({
         type: "close_wallet"
       }) 
+
       dispatch({
         type: "alert_modal",
         alertContent: "Link is being converted to goLink,  Check explorer page for confirmation.",
@@ -558,9 +559,9 @@ const metamaskSign = async () => {
     });
   }
    
-
+  setTimeout(() => window.location.reload(), 1500);
    
-     setTimeout(() => window.location.reload(), 1500);
+    
 
   } catch(error){
     dispatch({
@@ -574,7 +575,6 @@ const metamaskSign = async () => {
   }
   
 }
-
 
 // converter function
 const convert = () => {
