@@ -22,8 +22,7 @@ Technologies-&-Tools
 ============
 
 - ReactJS
-- SCSS
-- CSS
+- SCSS & CSS
 - Redux
 - AlgoSDK
 - Web3.js
