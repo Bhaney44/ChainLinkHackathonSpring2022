@@ -530,6 +530,9 @@ const metamaskSign = async () => {
     }, {headers }).then(response => {
       console.log(response)
       dispatch({
+        type: "close_wallet"
+      }) 
+      dispatch({
         type: "alert_modal",
         alertContent: "Link is being converted to goLink,  Check explorer page for confirmation.",
       });
@@ -557,7 +560,7 @@ const metamaskSign = async () => {
    
 
    
-    //  setTimeout(() => window.location.reload(), 1500);
+     setTimeout(() => window.location.reload(), 1500);
 
   } catch(error){
     dispatch({
@@ -641,7 +644,6 @@ const convert = () => {
               type="text"
               placeholder={eth_address ? " ZW3IS....7W754" :"0x57....a4a3"}
               value={addressForConverter}
-              pattern="^0x[a-fA-F0-9]{40}$"
               onChange={(e) => setAddressForConverter(e.target.value)}
             />
             <p className="ensure_txt">
