@@ -33,7 +33,6 @@ contract GenericLargeResponse is ChainlinkClient {
     setChainlinkOracle(0x9f8f7c4dCF80Babff1081089F44A89619E82A211);
   }
 
-
   function requestAddressAndAmount(
   )
     public
@@ -50,7 +49,6 @@ contract GenericLargeResponse is ChainlinkClient {
     bytes indexed data,
     uint256 amount
   );
-
 
   function fulfillBytes(
     bytes32 requestId,
